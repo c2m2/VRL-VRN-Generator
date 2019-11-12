@@ -28,10 +28,11 @@
 apply plugin: 'java'
 
 sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 	
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.2.1'
+wrapper {
+    gradleVersion = '5.6'
 }
 
 buildscript {
@@ -42,7 +43,7 @@ buildscript {
     }
     
     dependencies {
-        classpath (group: 'eu.mihosoft.vrl', name: 'vrl', version: '0.4.3.2.3')
+        classpath (group: 'eu.mihosoft.vrl', name: 'vrl', version: '0.4.4.0.3')
     }
 }
 
@@ -54,10 +55,10 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.10'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
     
-    compile (group: 'eu.mihosoft.vrl', name: 'vrl', version: '0.4.3.2.3')
-    compile (group: 'eu.mihosoft.vrl', name: 'vrl', version: '0.4.3.2.3', classifier: 'javadoc')
+    compile (group: 'eu.mihosoft.vrl', name: 'vrl', version: '0.4.4.0.3')
+    compile (group: 'eu.mihosoft.vrl', name: 'vrl', version: '0.4.4.0.3', classifier: 'javadoc')
 
     // TODO: Add dependencies here ...
     // You can read more about how to add dependency here:
@@ -90,7 +91,7 @@ jar {
         files.collect { zipTree(it) }
 
     // project class files compiled from source
-    from files(sourceSets.main.output.classesDir)
+    from files(sourceSets.main.output.classesDirs)
 }
 
 // loads the property file
