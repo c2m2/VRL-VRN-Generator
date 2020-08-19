@@ -25,25 +25,31 @@
  * authors and should not be interpreted as representing official policies, either expressed
  * or implied, of Michael Hoffer <info@michaelhoffer.de>.
  */
-package edu.gcsc.vrl.tutorial;
+package edu.gcsc.vrl.vr;
 
 import eu.mihosoft.vrl.annotation.ComponentInfo;
 import java.io.Serializable;
 
 /**
- * A tutorial component.
- *
- * @author Michael Hoffer <info@michaelhoffer.de>
+ * @brief Mesh Generator component to generate and bundle meshes for VR in Unity
  */
-@ComponentInfo(name="TutorialComponent01", category="TutorialPlugin/01")
-public class TutorialComponent01 implements Serializable{
+@ComponentInfo(name = "Mesh Generator", category = "VR/")
+public class MeshGenerator implements Serializable {
+  /// necessary for session serialization
+  private static final long serialVersionUID = 1L;
 
-    // necessary for session serialization
-    private static final long serialVersionUID = 1L;
+  /**
+   * @brief Generate meshes
+   */
+  public void generate() {
+    /// TODO: Add parameter annotations
+    /// TODO: Add ug calls to neuro_collections grid generation
+  }
 
-    // -- custom code --
-    public String doSomething() {
-        return "Plugin works!";
-    }
-    
+  /**
+   * @brief Bundle all mesh files to VRN file format (.vrn container format)
+   */
+  public void bundle() {
+    /// TODO: Bundle for VR in .vrn container format
+  }
 }
