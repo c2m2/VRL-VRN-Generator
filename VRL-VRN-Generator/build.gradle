@@ -64,8 +64,7 @@ def loadProperties(String sourceFileName) {
 // create a fat-jar (class files plus dependencies
 // excludes VRL.jar (plugin jar files must not start with 'vrl-\\d+')
 jar {
-
-    // dependencies except VRL
+    // dependencies except VRL (runtime is deprecated in later gradle >= 7)
     from configurations.compileClasspath.asFileTree.
         filter({file->return !file.name.startsWith("vrl-0")}).
         files.collect { zipTree(it) }
