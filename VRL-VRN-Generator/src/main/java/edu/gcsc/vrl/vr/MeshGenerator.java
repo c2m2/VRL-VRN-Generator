@@ -2,6 +2,7 @@ package edu.gcsc.vrl.vr;
 
 import eu.mihosoft.vrl.annotation.ComponentInfo;
 import eu.mihosoft.vrl.annotation.ParamInfo;
+import eu.mihosoft.vrl.annotation.MethodInfo;
 import java.io.Serializable;
 import java.io.File;
 
@@ -19,6 +20,7 @@ public class MeshGenerator implements Serializable {
    * @param inflation factor of inflation for 2D mesh
    * @param refinement number of 1D mesh refinements
    */
+  @MethodInfo(name="Generate mesh", hide=true)
   public void generate
   (
     @ParamInfo(name = "Input file", style="load-dialog") File file,

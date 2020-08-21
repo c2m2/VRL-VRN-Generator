@@ -2,6 +2,7 @@ package edu.gcsc.vrl.vr;
 
 import eu.mihosoft.vrl.annotation.ComponentInfo;
 import eu.mihosoft.vrl.annotation.ParamInfo;
+import eu.mihosoft.vrl.annotation.MethodInfo;
 import java.io.Serializable;
 import java.io.File;
 
@@ -17,6 +18,7 @@ public class VRNBundler implements Serializable {
    * @brief Bundle all mesh files to VRN file format (.vrn container format)
    * @param file output file name (VRN)
    */
+  @MethodInfo(name="Bundle as .vrn file", hide=true)
   public void bundle
   (
     @ParamInfo(name = "Ouput file", style="save-dialog") File file
