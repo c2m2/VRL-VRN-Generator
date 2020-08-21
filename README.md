@@ -9,5 +9,5 @@ VRL-Studio project for neuron mesh generation and containerizing to .vrn
 2. Edit build.properties and set path to your VRL installation, usually it is $HOME/.vrl
 3. ./gradlew installVRLplugin
 4. Open VRL-Studio
-5. Open the template project from within VRL-Studio
+5. Open the template project [mesh generation](ex/mesh-generation.vrlp) from within VRL-Studio found
 
