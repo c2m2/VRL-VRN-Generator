@@ -2,9 +2,10 @@
 
 # temporary build folder
 BUILD_FOLDER="$1"
-# ug folder (do not use UGROOT since we have multiple installations)
+# ug folder
 UG_FOLDER=/home/stephan/Code/git/ug4/
-# path to VRL.jar or empty to build VRL on-the-fly
+# path to VRL.jar or empty to build
+#VRL=/home/stephan/Code/git/VRL/VRL/dist/VRL.jar
 VRL=
 
 if [ -z "${BUILD_FOLDER}" -o ! -e "${UG_FOLDER}" ]; then 
@@ -12,7 +13,6 @@ if [ -z "${BUILD_FOLDER}" -o ! -e "${UG_FOLDER}" ]; then
    exit 1
 fi
 
-# create build folder
 test ! -e "${BUILD_FOLDER}" && mkdir "${BUILD_FOLDER}"
 cd "${BUILD_FOLDER}"
 
@@ -35,22 +35,24 @@ if [ ! -e "${VRL}" ]; then
 fi
 
 # build vrl-ug
-cp "${VRL}" VRL-UG/
 if [ ! -d "VRL-UG/" ]; then
    git clone https://github.com/VRL-Studio/VRL-UG
 else
    cd VRL-UG && git pull && cd -
 fi
+cp "${VRL}" VRL-UG/
 cd VRL-UG
 
 VRL_UG_PACKAGE_NATIVES=eu/mihosoft/vrl/plugin/content/natives/
 COMMON_PART_NATIVES=src/main/resources/${VRL_UG_PACKAGE_NATIVES}
 
-zip -r natives.zip "${UG_FOLDER}/lib/libug4.so"
+cd ${UG_FOLDER}/lib/
+zip -r natives.zip *so
+cd -
 mkdir -p ${COMMON_PART_NATIVES}linux/x86
 mkdir -p ${COMMON_PART_NATIVES}linux/x64
-cp natives.zip ${COMMON_PART_NATIVES}linux/x86/natives.zip
-cp natives.zip ${COMMON_PART_NATIVES}linux/x64/natives.zip
+cp ${UG_FOLDER}/lib/natives.zip ${COMMON_PART_NATIVES}linux/x86/natives.zip
+cp ${UG_FOLDER}/lib/natives.zip ${COMMON_PART_NATIVES}linux/x64/natives.zip
 rm natives.zip
 ./gradlew jar
 
