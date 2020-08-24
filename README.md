@@ -12,4 +12,4 @@ VRL-Studio project for neuron mesh generation and containerizing to .vrn
 5. Open the template project [mesh generation](ex/mesh-generation.vrlp) from within VRL-Studio found
 
 ## TODO
-Enable CI/CD build (Which requires VRL-UG-API, see `build_ug_api.sh`) on Travis and Appveyor.
+Enable CI/CD build (Which requires VRL-UG-API, see `build_ug_api.sh`) on Travis and Appveyor and provide build artifact (VRL-VRN-Generator.jar) as a installable VRL plugin.
