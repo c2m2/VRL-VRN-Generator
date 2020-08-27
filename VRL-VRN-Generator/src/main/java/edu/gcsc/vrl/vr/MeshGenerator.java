@@ -20,7 +20,7 @@ public class MeshGenerator implements Serializable {
    * @param inflation factor of inflation for 2D mesh
    * @param refinement number of 1D mesh refinements
    */
-  @MethodInfo(name="Generate mesh", hide=true)
+  @MethodInfo(name="Generate mesh", hide=true, num=1)
   public void generate
   (
     @ParamInfo(name = "Input file", style="load-dialog") File file,
