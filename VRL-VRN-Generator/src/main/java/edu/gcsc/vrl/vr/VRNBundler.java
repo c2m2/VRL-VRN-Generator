@@ -18,7 +18,7 @@ public class VRNBundler implements Serializable {
    * @brief Bundle all mesh files to VRN file format (.vrn container format)
    * @param file output file name (VRN)
    */
-  @MethodInfo(name="Bundle as .vrn file", hide=true, num=1)
+  @MethodInfo(name="Bundle as .vrn file")
   public void bundle
   (
     @ParamInfo(name = "Ouput file", style="save-dialog") File file
