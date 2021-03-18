@@ -1,5 +1,10 @@
 name: Update README
-on: push
+on: 
+   push:
+      branches:
+         - master
+      paths-ignore:
+         - '**.md'
 jobs:
   report:
     runs-on: ubuntu-latest
