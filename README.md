@@ -32,3 +32,4 @@ An example project / workflow is provided in the `ex` folder locally after the r
 - Ship ugshell binary and the pipeline script for different operating systems with this project in the resource folder
  
  https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47841394/zip
+ 47841394
