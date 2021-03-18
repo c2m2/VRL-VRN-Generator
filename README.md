@@ -29,3 +29,6 @@ An example project / workflow is provided in the `ex` folder locally after the r
 ## Latest builds
 [Download](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/
 47846464/zip
+## Latest builds
+[Thu Mar 18 09:38:43 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/
+47847413/zip)
