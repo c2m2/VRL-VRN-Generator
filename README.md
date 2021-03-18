@@ -19,7 +19,7 @@ An example project / workflow is provided in the `ex` folder locally after the r
 ## Workflow for mesh generation in VRL-Studio via the GUI
 ![Demo](../assets/example.png?raw=true)
 
-## Howto generate meshes
+## Howto generate meshes from source
 1.  Clone this repository
 2.  Edit build.properties and set path to your VRL installation, usually it is $HOME/.vrl
 3.  ./gradlew installVRLplugin
@@ -27,7 +27,16 @@ An example project / workflow is provided in the `ex` folder locally after the r
 5.  Open the template project [mesh generation](ex/mesh-generation.vrlp) from within VRL-Studio found in the example folder `ex`.
 6.  Follow the example workflow to create meshes
 
-## Latest builds
+
+## Latest release
+For the latest releases check the `Releases` tab on the right hand side.
+Simply download a release and unzip it. Install the plugin via the VRL-Studio
+plugin tab, restart VRL-Studio and open the example project from the `ex` folder.
+
+## Latest nightly builds
 -   [Thu Mar 18 10:31:29 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47859114/zip)
 -   [Thu Mar 18 10:35:05 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47859471/zip)
 -   [Thu Mar 18 10:43:04 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47860389/zip)
+
+## TODO
+-   Integrate the example project from the assets branch as a template project from resource
