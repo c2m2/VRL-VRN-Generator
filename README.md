@@ -42,3 +42,4 @@ plugin tab, restart VRL-Studio and open the example project from the `ex` folder
 ## TODO
 -   Integrate the example project from the assets branch as a template project from resource
 -   [Thu Mar 18 16:07:37 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47911075/zip)
+-   [Thu Mar 18 16:19:33 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47937265/zip)
