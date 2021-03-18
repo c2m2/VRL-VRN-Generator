@@ -40,7 +40,6 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
   }
 
   /**
-   * @see PluginApi.register(PluginAPI)
    */
   @Override
   public void register(PluginAPI api) {
@@ -54,7 +53,6 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
   }
 
   /**
-   * @see PluginAPI.unregister(PluginAPI)
    */
   @Override
   public void unregister(PluginAPI api) {
@@ -62,7 +60,6 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
   }
 
   /**
-   * @see PluginAPI.init(InitPluginAPI)
    */
   @Override
   public void init(InitPluginAPI iApi) {
