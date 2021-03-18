@@ -28,6 +28,8 @@ An example project / workflow is provided in the `ex` folder locally after the r
 5.  Open the template project [mesh generation](ex/mesh-generation.vrlp) from within VRL-Studio found in the example folder `ex`.
 6.  Follow the example workflow to create meshes
 
+## TODO
+-   Integrate the example project from the assets branch as a template project from resource
 
 ## Latest release
 For the latest releases check the `Releases` tab on the right hand side.
@@ -38,7 +40,3 @@ plugin tab, restart VRL-Studio and open the example project from the `ex` folder
 -   [Thu Mar 18 10:31:29 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47859114/zip)
 -   [Thu Mar 18 10:35:05 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47859471/zip)
 -   [Thu Mar 18 10:43:04 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47860389/zip)
-
-## TODO
--   Integrate the example project from the assets branch as a template project from resource
--   [Thu Mar 18 16:07:37 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47911075/zip)
