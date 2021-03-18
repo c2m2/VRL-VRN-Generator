@@ -8,9 +8,9 @@ jobs:
       - name: Create report file
         run: |
            echo "## Latest builds" >> report.txt
-           echo "[Download](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/" >> report.txt
-           curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts | sed -n -e '/id/p' | head -1 | cut -d ':' -f 2 | sed -n 's/,//p' |  tr -d "[:space:]" >> report.txt
-           echo "/zip" >> report.txt
+           echo "[$(date)](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/" >> report.txt
+           curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts | sed -n -e '/id/p' | head -1 | cut -d ':' -f 2 | sed -n 's/,//p' | tr -d "[:space:]" >> report.txt
+           echo "/zip)" >> report.txt
       - name: Commit report
         run: |
           cat report.txt >> README.md
