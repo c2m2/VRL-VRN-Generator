@@ -1,4 +1,4 @@
-name: Push commit
+name: Update README
 on: push
 jobs:
   report:
