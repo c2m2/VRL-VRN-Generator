@@ -23,7 +23,7 @@ jobs:
       - name: Build 🔨
         run: | 
           ./scripts/build.sh
-          zip -r VRL-VRN-Generator VRL-VRN-Generator/build/libs/
+          zip -r VRL-VRN-Generator /home/runner/work/VRL-VRN-Generator/VRL-VRN-Generator/build/libs/
 
       - name: Create Release
         id: create_release
