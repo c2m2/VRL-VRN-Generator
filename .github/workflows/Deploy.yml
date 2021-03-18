@@ -7,7 +7,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Create report file
         run: |
-           curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts | sed -n -e '/id/p' | head -1 | cut -d ':' -f 2 | sed -n 's/,//p' > report.txt
+           echo "## Latest build" >> report.txt
+           echo "[Download](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/"
+           curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts | sed -n -e '/id/p' | head -1 | cut -d ':' -f 2 | sed -n 's/,//p' >> report.txt
+           echo "/zip" >> report.txt
       - name: Commit report
         run: |
           cat report.txt >> README.md
