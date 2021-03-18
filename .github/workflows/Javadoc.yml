@@ -1,0 +1,32 @@
+name: Javadoc
+
+on:
+  push:
+    branches-ignore: gh-pages
+  pull_request:
+    branches-ignore: gh-pages
+
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: "Setup JDK 1.8"
+        uses: joschi/setup-jdk@v2
+        with:
+          java-version: '8'
+          architecture: 'x64' 
+
+      - name: Build Javadoc  🔨
+        run:  javadoc -d docs -sourcepath VRL-VRN-Generator/src/main/java/ -subpackages  edu.gcsc.vrl
+
+      - name: Deploy Javadoc 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs/
+          CLEAN: true 
+
