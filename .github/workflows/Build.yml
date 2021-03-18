@@ -32,7 +32,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: VRL-VRN-Generator
+          name: VRL-VRN-Generator.zip
           path: VRL-VRN-Generator/build/libs/
 
       - name: Download artifacts
