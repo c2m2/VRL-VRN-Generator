@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
@@ -29,7 +28,7 @@ public class MeshGenerator implements Serializable {
   public void generate
   (
     @ParamInfo(name = "Input file", style="load-dialog") File file,
-    @ParamInfo(name = "Inflation factor 2D", options="value=1.0") double inflation,
+    @ParamInfo(name = "Inflation factor 2D", options="value=1;min=1;max=100", style="slider") int inflation,
     @ParamInfo(name = "Number of 1D Refinements", options="value=0;min=0;max=10", style="slider") int refinement,
     @ParamInfo(name = "Pre-smooth") boolean smooth,
     @ParamInfo(name = "Segment length", options="value=4;min=1;max=255") int segLength,
