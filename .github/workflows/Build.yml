@@ -17,9 +17,9 @@ jobs:
         with:
           java-version: '8'
           architecture: 'x64' 
-      
-      - name: Grant execute permission for gradlew
-        run: chmod +x VRL-VRN-Generator/gradlew
+
+      - name: Make build script executable
+        run: chmod u+x scripts/build.sh
 
       - name: Build 🔨
-        run: ./VRL-VRN-Generator/gradlew jar
+        run: ./scripts/build.sh
