@@ -13,7 +13,6 @@ jobs:
       - name: Commit report
         run: |
           cat report.txt >> README.md
-          echo "" >> README.md
           git config --global user.name 'CI'
           git commit -am "Updating artifact"
           git push
