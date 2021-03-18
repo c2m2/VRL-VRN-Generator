@@ -13,6 +13,7 @@ An example project / workflow is provided in the `ex` folder locally after the r
 [![Build](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml)
 [![Build Status](https://travis-ci.org/c2m2/VRL-VRN-Generator.svg?branch=master)](https://travis-ci.org/c2m2/VRL-VRN-Generator)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/c2m2/VRL-VRN-Generator)
+[![Javadoc](https://img.shields.io/badge/Javadoc-%20Documentation-magenta.svg)](https://c2m2.github.io/VRL-VRN-Generator/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-magenta.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Known Vulnerabilities](https://snyk.io/test/github/c2m2/VRL-VRN-Generator/badge.svg?targetFile=VRL-VRN-Generator/build.gradle)](https://snyk.io/test/github/c2m2/VRL-VRN-Generator?targetFile=VRL-VRN-Generator/build.gradle)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5e4acf16fe224ef7b815a77ba83e5059)](https://www.codacy.com/gh/c2m2/VRL-VRN-Generator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=c2m2/VRL-VRN-Generator&amp;utm_campaign=Badge_Grade)
@@ -37,8 +38,5 @@ Simply download a release and unzip it. Install the plugin via the VRL-Studio
 plugin tab, restart VRL-Studio and open the example project from the `ex` folder.
 
 ## Latest nightly builds
--   [Thu Mar 18 10:31:29 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47859114/zip)
--   [Thu Mar 18 10:35:05 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47859471/zip)
--   [Thu Mar 18 10:43:04 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47860389/zip)
 -   [Thu Mar 18 16:21:21 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47940458/zip)
 -   [Thu Mar 18 16:23:25 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47941060/zip)
