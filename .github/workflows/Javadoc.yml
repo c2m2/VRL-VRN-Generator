@@ -19,6 +19,12 @@ jobs:
           java-version: '8'
           architecture: 'x64' 
 
+      - name: Make build script executable
+        run: chmod u+x scripts/build.sh
+
+      - name: Build 🔨
+        run: ./scripts/build.sh
+
       - name: Build Javadoc  🔨
         run:  javadoc -d docs -sourcepath VRL-VRN-Generator/src/main/java/ -subpackages  edu.gcsc.vrl
 
