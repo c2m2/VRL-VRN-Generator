@@ -6,10 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Create report file
-        run: curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts | sed -n -e '/id/p' | head -1 | cut -d ':' -f 2 | sed -n 's/,//p' > artifact.txt
+        run: curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts | sed -n -e '/id/p' | head -1 | cut -d ':' -f 2 | sed -n 's/,//p' > report.txt
       - name: Commit report
         run: |
-          cat artifact.txt >> README.md
+          cat report.txt >> README.md
           git config --global user.name 'CI'
           git commit -am "Updating artifact"
           git push
