@@ -14,7 +14,7 @@ An example project / workflow is provided in the `ex` folder locally after the r
 |---|---|---|
 | [![Linux](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml)  |  [![Windows](https://ci.appveyor.com/api/projects/status/lf67s11e2jreogr5?svg=true)](https://ci.appveyor.com/project/stephanmg/vrl-vrn-generator)  | [![OSX](https://travis-ci.org/c2m2/VRL-VRN-Generator.svg?branch=master)](https://travis-ci.org/c2m2/VRL-VRN-Generator)  |
 
-Currently JDK >=8 and Gradle >=6 is supported.
+Currently JDK >=8 and Gradle >=6 is supported. If errors occur, feel free to open an issue or contact me directly.
 
 ### Releases, documentation, license and code metrics
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/c2m2/VRL-VRN-Generator)
