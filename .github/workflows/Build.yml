@@ -23,3 +23,14 @@ jobs:
 
       - name: Build 🔨
         run: ./scripts/build.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: VRL-VRN-Generator
+          path: VRL-VRN-Generator/build/libs/
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with: 
+          name: VRL-VRN-Generator
