@@ -7,10 +7,10 @@ import eu.mihosoft.vrl.annotation.OutputInfo;
 import java.io.File;
 import java.io.Serializable;
 
-@ComponentInfo(name = "UG Configurator", category = "VR/")
 /**
  * UG runtime configurator component
  */
+@ComponentInfo(name = "UG Configurator", category = "VR/")
 public class UGConfigurator implements Serializable {
   /// necessary for session serialization
   private static final long serialVersionUID = 1L;
