@@ -28,3 +28,6 @@ An example project / workflow is provided in the `ex` folder locally after the r
 6. Follow the example workflow to create meshes
 
 ## Latest builds
+[Thu Mar 18 09:49:07 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/
+47850020
+/zip)
