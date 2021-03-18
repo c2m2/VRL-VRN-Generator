@@ -59,6 +59,6 @@ public class UGConfigurator implements Serializable {
     @ParamInfo(name = "Path to ug binary", style="load-dialog") File binary,
     @ParamInfo(name = "Path to pipeline script", style="load-dialog") File script
   ) {
-    return new UGConfiguration(binary.toString(), script.toString());
+     return new UGConfiguration(binary.toString(), script.toString());
   }
 }
