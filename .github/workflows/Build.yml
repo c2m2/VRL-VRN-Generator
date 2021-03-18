@@ -27,7 +27,9 @@ jobs:
         run: chmod u+x scripts/build.sh
 
       - name: Build 🔨
-        run: ./scripts/build.sh
+        run: | 
+          ./scripts/build.sh
+          zip my-artifact VRL-VRN-Generator/build/libs
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
@@ -57,7 +59,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: /home/runner/work/VRL-VRN-Generator/VRL-VRN-Generator/VRL-VRN-Generator.zip
-          asset_name: VRL-VRN-Generator.zip
+          asset_path: ./my-artifact.zip
+          asset_name: my-artifact.zip
           asset_content_type: application/zip
 
