@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Create report file
         run: |
-           echo -n "- [$(date)](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/" >> report.txt
+           echo -n "-  [$(date)](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/" >> report.txt
            curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts | sed -n -e '/id/p' | head -1 | cut -d ':' -f 2 | sed -n 's/,//p' | tr -d ' ' | tr -d '\n' >> report.txt
            echo -n "/zip)" >> report.txt
       - name: Commit report
