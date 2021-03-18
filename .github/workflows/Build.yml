@@ -3,6 +3,10 @@ name: Build
 on:
   push:
     branches-ignore: assets
+    paths-ignore:
+      - '**.md'
+      - '**.yml'
+
   pull_request:
     branches-ignore: assets
  
