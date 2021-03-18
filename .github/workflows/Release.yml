@@ -23,7 +23,7 @@ jobs:
       - name: Build 🔨
         run: | 
           ./scripts/build.sh
-          zip my-artifact VRL-VRN-Generator/build/libs
+          zip my-artifact VRL-VRN-Generator/build/libs/VRL-VRN-Generator.jar
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
