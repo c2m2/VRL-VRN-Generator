@@ -3,7 +3,7 @@
 VRL-Studio project for neuron mesh generation and containerizing to .vrn for virtual reality 
 
 This project enables the user to create VR meshes and bundles thereof in our 
-custom container format (`.vrn`) readble in our virtual reality project in Unity.
+custom container format (`.vrn`) readable in our virtual reality project in Unity.
 
 The *only* prerequisite is a valid installation of VRL-Studio, see section on howto generate meshes below.
 An example project / workflow is provided in the `ex` folder locally after the repository has been cloned.
@@ -28,4 +28,4 @@ An example project / workflow is provided in the `ex` folder locally after the r
 
 ## TODO
 - Enable CI to automatically build the `.vrlp` plugin with Github actions and make available as a package
-- Ship ugshell binary and the pipeline script for different operating systems with this project
+- Ship ugshell binary and the pipeline script for different operating systems with this project in the resource folder
