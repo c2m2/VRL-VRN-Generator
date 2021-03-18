@@ -11,11 +11,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
- * @brief Mesh Generator component to generate and bundle meshes for VR in Unity
+ * Mesh Generator component to generate and bundle meshes for VR in Unity
  */
 @ComponentInfo(name = "Mesh Generator", category = "VR/")
 /**
- * @brief Mesh Generator visual component
+ * Mesh Generator visual component
  */
 public class MeshGenerator implements Serializable {
   /// necessary for session serialization
