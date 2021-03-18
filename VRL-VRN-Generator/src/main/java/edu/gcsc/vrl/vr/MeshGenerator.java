@@ -22,7 +22,7 @@ public class MeshGenerator implements Serializable {
   private static final long serialVersionUID = 1L;
 
   /**
-   * @brief Generate 1D and 2D meshes
+   * Generate 1D and 2D meshes
    * @param file input file name (SWC)
    * @param inflation factor of inflation for 2D mesh
    * @param refinement number of 1D mesh refinements
