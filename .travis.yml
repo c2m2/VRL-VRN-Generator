@@ -6,7 +6,7 @@ sudo: false
 
 language: java
 jdk:
-  - openjdk8
+  - openjdk9
   
 script:
     - chmod u+x scripts/build.sh
