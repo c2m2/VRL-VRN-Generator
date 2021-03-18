@@ -8,13 +8,13 @@ custom container format (`.vrn`) readable in our virtual reality project in Unit
 The *only* prerequisite is a valid installation of VRL-Studio, see section on howto generate meshes below.
 An example project / workflow is provided in the `ex` folder locally after the repository has been cloned.
 
-## Build status and badges
+### Build status
 
 | Linux  | Windows  | OSX  |
 |---|---|---|
 | [![Linux](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml)  |  [![Windows](https://ci.appveyor.com/api/projects/status/lf67s11e2jreogr5?svg=true)](https://ci.appveyor.com/project/stephanmg/vrl-vrn-generator)  | [![OSX](https://travis-ci.org/c2m2/VRL-VRN-Generator.svg?branch=master)](https://travis-ci.org/c2m2/VRL-VRN-Generator)  |
 
-
+### Releases, documentation, license and code metrics
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/c2m2/VRL-VRN-Generator)
 [![Docs](https://img.shields.io/badge/Javadoc-%20Documentation-blueviolet.svg)](https://c2m2.github.io/VRL-VRN-Generator/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-magenta.svg)](https://www.gnu.org/licenses/gpl-3.0)
