@@ -47,7 +47,7 @@ VRL_UG_PACKAGE_NATIVES=eu/mihosoft/vrl/plugin/content/natives/
 COMMON_PART_NATIVES=src/main/resources/${VRL_UG_PACKAGE_NATIVES}
 
 cd ${UG_FOLDER}/lib/
-zip -r natives.zip *so
+zip -r natives.zip "*.so"
 cd -
 mkdir -p ${COMMON_PART_NATIVES}linux/x86
 mkdir -p ${COMMON_PART_NATIVES}linux/x64

@@ -15,9 +15,9 @@ public class UGConfigurator implements Serializable {
   public class UGConfiguration {
     private String pathToBinary = "ugshell";
     private String pathToScript = "";
-    public UGConfiguration(String pathToBin, String pathToScript) {
+    public UGConfiguration(String pathToBin, String pathToScr) {
       pathToBinary = pathToBin;
-      pathToScript = pathToScript;
+      pathToScript = pathToScr;
     }
     public String getBinaryPath() {
       return pathToBinary;
