@@ -29,6 +29,7 @@ jobs:
         with:
           name: VRL-VRN-Generator
           path: VRL-VRN-Generator/build/libs/
+          target: VRL-VRN-Generator
 
       - name: Download artifacts
         uses: actions/download-artifact@v2
