@@ -1,8 +1,6 @@
 name: Update README
 on: 
    push:
-      branches:
-         - master
       branches-ignore: 
          - assets
       paths-ignore:
@@ -10,7 +8,8 @@ on:
          - '**.yml'
 
    pull_request:
-     branches-ignore: assets
+     branches-ignore: 
+         - assets
 
 jobs:
   report:

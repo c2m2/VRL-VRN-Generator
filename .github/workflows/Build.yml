@@ -2,13 +2,15 @@ name: Build
 
 on:
   push:
-    branches-ignore: assets
+    branches-ignore: 
+      - assets
     paths-ignore:
       - '**.md'
       - '**.yml'
 
   pull_request:
-    branches-ignore: assets
+    branches-ignore: 
+      - assets
  
 jobs:
   build:                                                                                                                                                                      
