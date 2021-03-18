@@ -55,7 +55,3 @@ cp ${UG_FOLDER}/lib/natives.zip ${COMMON_PART_NATIVES}linux/x86/natives.zip
 cp ${UG_FOLDER}/lib/natives.zip ${COMMON_PART_NATIVES}linux/x64/natives.zip
 rm natives.zip
 ./gradlew jar
-
-# TODO: Add build_tools (consoleApp) to automatically 
-#       generate the VRL-UG-API (w/o using VRL-Studio
-#       GUI but the headless mode instead for CI/CD)
