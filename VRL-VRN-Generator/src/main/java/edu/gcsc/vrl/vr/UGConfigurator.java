@@ -8,24 +8,52 @@ import java.io.File;
 import java.io.Serializable;
 
 @ComponentInfo(name = "UG Configurator", category = "VR/")
+/**
+ * UG runtime configurator component
+ */
 public class UGConfigurator implements Serializable {
   /// necessary for session serialization
   private static final long serialVersionUID = 1L;
 
+  /**
+   * UG runtime configuration
+   */
   public class UGConfiguration {
     private String pathToBinary = "ugshell";
     private String pathToScript = "";
+    /**
+     * Constructs a UG runtime configuration
+     * @param pathToBin path to ugshell binary on local filesystem 
+     * @param pathToScr path to mesh generation pipeline script on local filesystem
+     */
     public UGConfiguration(String pathToBin, String pathToScr) {
       pathToBinary = pathToBin;
       pathToScript = pathToScr;
     }
+
+    /**
+     * @return String
+     */
     public String getBinaryPath() {
       return pathToBinary;
+    }
+
+    /**
+     * @return String
+     */
+    public String getScriptPath() {
+      return pathToScript;
     }
   }
   
   @MethodInfo(name = "Configure ug4 binary",valueTypeName="ug config", valueName="ug config")
   @OutputInfo(name = "Configuration", style="default", typeName="ug config")
+  /**
+   * Setup the UG runtime configuration
+   * @param binary path to ugshell binary
+   * @param script path to mesh generation pipeline script
+   * @return UGConfiguration
+   */
   public UGConfiguration setup
   (
     @ParamInfo(name = "Path to ug binary", style="load-dialog") File binary,

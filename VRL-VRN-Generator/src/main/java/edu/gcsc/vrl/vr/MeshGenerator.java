@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
- * Mesh Generator component to generate and bundle meshes for VR in Unity
+ * Mesh Generator component to generate inflated and refined meshes
  */
 @ComponentInfo(name = "Mesh Generator", category = "VR/")
 /**
@@ -23,9 +23,12 @@ public class MeshGenerator implements Serializable {
 
   /**
    * Generate 1D and 2D meshes
-   * @param file input file name (SWC)
+   * @param file input file name of file type .swc
    * @param inflation factor of inflation for 2D mesh
    * @param refinement number of 1D mesh refinements
+   * @param smooth if true mesh is pre-refined otherwise not
+   * @param segLength segment length for 1D mesh regularization in physiological units (µm)
+   * @param config run configuration for the ugshell binary which executes the mesh generation pipeline
    */
   @MethodInfo(name="Generate mesh")
   public void generate

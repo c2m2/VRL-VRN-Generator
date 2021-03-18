@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.io.File;
 
 /**
- * Mesh Generator component to generate and bundle meshes for VR in Unity
+ * VRN Bundler component to compile generated meshes into an archive of custom container format
  */
 @ComponentInfo(name = "VRN Bundler", category = "VR/")
 public class VRNBundler implements Serializable {
@@ -15,8 +15,8 @@ public class VRNBundler implements Serializable {
   private static final long serialVersionUID = 1L;
 
   /**
-   * Bundle all mesh files to VRN file format (.vrn container format)
-   * @param file output file name (VRN)
+   * Compiles respectively bundles the meshes into an .vrn archive file
+   * @param file output file name without .vrn extension
    */
   @MethodInfo(name="Bundle as .vrn file")
   public void bundle
