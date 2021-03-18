@@ -37,18 +37,18 @@ public class MeshGenerator implements Serializable {
   {
     /// TODO: Refactor and make use of the option (builder pattern) for UGConfigurator
     try {
-    Process process = new ProcessBuilder(config.getBinaryPath(), "-call 'print(\"hello world\")'").start();
-    InputStream is = process.getInputStream();
-    InputStreamReader isr = new InputStreamReader(is);
-    BufferedReader br = new BufferedReader(isr);
-    String line;
+      Process process = new ProcessBuilder(config.getBinaryPath(), "-call 'print(\"hello world\")'").start();
+      InputStream is = process.getInputStream();
+      InputStreamReader isr = new InputStreamReader(is);
+      BufferedReader br = new BufferedReader(isr);
+      String line;
 
-  while ((line = br.readLine()) != null) {
-    System.out.println(line);
-    }
-  } catch (IOException ioe) {
+      while ((line = br.readLine()) != null) {
+        System.out.println(line);
+      }
+    } catch (IOException ioe) {
     /// TODO: Use vrl mihosoft vmessage instead for GUI notification
     System.err.println("Error could not run!");
-  }
+    }
   }
 }
