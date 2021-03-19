@@ -42,3 +42,4 @@ plugin tab, restart VRL-Studio and open the example project from the `ex` folder
 ## Latest nightly builds
 -   [Thu Mar 18 16:41:22 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47945693/zip)
 -   [Thu Mar 18 17:54:11 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47946318/zip)
+-   [Fri Mar 19 10:13:04 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47963808/zip)
