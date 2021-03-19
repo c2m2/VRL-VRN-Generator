@@ -23,7 +23,8 @@ public class VRNBundler implements Serializable {
 
   /**
    * Compiles respectively bundles the meshes into an .vrn archive file
-   * @param file output file name without .vrn extension
+   * @param oFile output file name without .vrn extension
+   * @param iFile input folder name of temporary mesh storage location
    */
   @MethodInfo(name="Bundle as .vrn file")
   public void bundle
