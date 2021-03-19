@@ -29,7 +29,7 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 [![Release](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Release.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Release.yml)
 [![Javadoc](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Javadoc.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Javadoc.yml)
 [![README](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Deploy.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Deploy.yml)
-![Build](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml)
+[![Build](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml)
 
 ## Workflow for mesh generation in VRL-Studio via the GUI
 ![Demo](../assets/example.png?raw=true)
