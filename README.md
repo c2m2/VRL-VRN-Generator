@@ -15,7 +15,7 @@ or can be downloaded from *this* project website via navigation to the `VRL-VRN-
 |---|---|---|
 | [![Linux](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml)  |  [![Windows](https://ci.appveyor.com/api/projects/status/lf67s11e2jreogr5?svg=true)](https://ci.appveyor.com/project/stephanmg/vrl-vrn-generator)  | [![OSX](https://travis-ci.org/c2m2/VRL-VRN-Generator.svg?branch=master)](https://travis-ci.org/c2m2/VRL-VRN-Generator)  |
 
-Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported. 
+Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating systems listed above.
 
 ### Releases, documentation, license and code metrics
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/c2m2/VRL-VRN-Generator)
