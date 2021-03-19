@@ -7,10 +7,9 @@ import eu.mihosoft.vrl.system.VMessage;
 import eu.mihosoft.vrl.visual.MessageType;
 import java.io.Serializable;
 import java.io.File;
-import static java.nio.file.StandardCopyOption.*;
 import java.nio.file.Files;
 import java.io.IOException;
-
+import static java.nio.file.StandardCopyOption.*;
 
 /**
  * VRN Bundler component to compile generated meshes into an archive of custom container format

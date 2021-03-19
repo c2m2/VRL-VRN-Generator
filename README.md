@@ -29,10 +29,10 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported.
 ## Howto generate meshes from source
 1.  Clone this repository
 2.  Edit build.properties and set path to your VRL installation, usually it is $HOME/.vrl
-3.  ./gradlew installVRLplugin
+3.  `./gradlew installVRLplugin` or `./gradlew jar` and manual copy of plugin's `.jar` file from the `build/libs/` folder.
 4.  Open VRL-Studio
-5.  Open the template project [mesh generation](ex/mesh-generation.vrlp) from within VRL-Studio found in the example folder `ex`.
-6.  Follow the example workflow to create meshes
+5.  Open the template project [mesh generation](ex/mesh-generation.vrlp) from within VRL-Studio found in the example folder `ex` or chose open new template project within VRL-Studio and select `Mesh Generation`.
+6. Familarize with the example workflow, then provide `.swc` files from a database
 
 ## Latest release
 For the latest releases check the `Releases` tab on the right hand side.

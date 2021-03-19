@@ -5,6 +5,7 @@ import eu.mihosoft.vrl.annotation.ParamInfo;
 import eu.mihosoft.vrl.annotation.MethodInfo;
 import eu.mihosoft.vrl.system.VMessage;
 import eu.mihosoft.vrl.visual.MessageType;
+import eu.mihosoft.vrl.annotation.OutputInfo;
 import java.io.Serializable;
 import java.io.File;
 import java.io.InputStream;
@@ -16,7 +17,6 @@ import java.nio.file.Path;
 import java.nio.file.Files;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import eu.mihosoft.vrl.annotation.OutputInfo;
 
 /**
  * Mesh Generator component to generate inflated and refined meshes

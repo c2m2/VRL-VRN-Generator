@@ -15,7 +15,7 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
    * Plugin configurator specifiying name, author, version and dependencies
    */
   public VRNPluginConfigurator() {
-    // specify the plugin name and version (semantic versioning)
+    // specify the plugin name and version 
     setIdentifier(new PluginIdentifier("VRL-VRN-Generator", "0.0.1"));
 
     // exported by using the exportPackage() method:
@@ -28,11 +28,11 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
 
     // copyright info
     setCopyrightInfo(
-      "MeshGenerator",
+      "VRL-VRN-MeshGenerator",
       "(c) Stephan Grein",
-      "c2m2 url",
-      "License Name",
-      "License Text..."
+      "c2m2vr.wordpress.com",
+      "License Name to be added here",
+      "License Text to be added here"
     );
 
     // specify dependencies
