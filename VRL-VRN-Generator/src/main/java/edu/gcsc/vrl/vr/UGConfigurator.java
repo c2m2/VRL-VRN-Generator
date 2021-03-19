@@ -46,8 +46,8 @@ public class UGConfigurator implements Serializable {
     }
   }
   
-  @MethodInfo(name = "Configure ug4 binary",valueTypeName="ug config", valueName="ug config")
-  @OutputInfo(name = "Configuration", style="default", typeName="ug config")
+  @MethodInfo(name = "Configure UG binary",valueTypeName="UG configuration", valueName="UG configuration")
+  @OutputInfo(name = "Configuration", style="default", typeName="UG configuration")
   /**
    * Setup the UG runtime configuration
    * @param binary path to ugshell binary
