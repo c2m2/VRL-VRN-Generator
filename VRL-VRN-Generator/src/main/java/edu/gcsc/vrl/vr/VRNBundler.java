@@ -7,7 +7,6 @@ import eu.mihosoft.vrl.system.VMessage;
 import eu.mihosoft.vrl.visual.MessageType;
 import java.io.Serializable;
 import java.io.File;
-import java.nio.file.Path;
 import static java.nio.file.StandardCopyOption.*;
 import java.nio.file.Files;
 import java.io.IOException;
