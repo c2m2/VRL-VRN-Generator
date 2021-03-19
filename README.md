@@ -40,7 +40,7 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 3.  `./gradlew installVRLplugin` or `./gradlew jar` and manual copy of plugin's `.jar` file from the `build/libs/` folder.
 4.  Open VRL-Studio
 5.  Open the template project [mesh generation](ex/mesh-generation.vrlp) from within VRL-Studio found in the example folder `ex` or chose open new template project within VRL-Studio and select `Mesh Generation`.
-6. Familarize with the example workflow, then provide `.swc` files from a database
+6.  Familarize with the example workflow, then provide `.swc` files from a database
 
 **Note:** For now the path to the ugshell binary and pipeline script has to be provided manually until further notice. If the UG installation is allowed to be included into a spinoff project then the only requirement is the VRL-Studio installation.
 
