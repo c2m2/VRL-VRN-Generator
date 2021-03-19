@@ -6,7 +6,8 @@ This project enables the user to create VR meshes and bundles thereof in our
 custom container format (`.vrn`) readable in our virtual reality project in Unity.
 
 The *only* prerequisite is a valid installation of VRL-Studio, see section on howto generate meshes below.
-An example project / workflow is provided in the `ex` folder locally after the repository has been cloned.
+An example project / workflow is provided in the `ex` folder locally after the repository has been cloned
+or can be downloaded from *this* project website via navigation to the `VRL-VRN-Generator/ex` folder.
 
 ### Build status
 
