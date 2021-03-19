@@ -25,7 +25,8 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 [![Known Vulnerabilities](https://snyk.io/test/github/c2m2/VRL-VRN-Generator/badge.svg?targetFile=VRL-VRN-Generator/build.gradle)](https://snyk.io/test/github/c2m2/VRL-VRN-Generator?targetFile=VRL-VRN-Generator/build.gradle)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5e4acf16fe224ef7b815a77ba83e5059)](https://www.codacy.com/gh/c2m2/VRL-VRN-Generator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=c2m2/VRL-VRN-Generator&amp;utm_campaign=Badge_Grade)
 [![GitHub issues open](https://img.shields.io/github/issues/c2m2/VRL-VRN-Generator)](https://github.com/c2m2/VRL-VRN-Generator/issues)
-[![Gitter](https://img.shields.io/gitter/room/stephanmg/c2m2/.svg?style=flat-square)](https://gitter.im/stephanmg/c2m2)
+[![Gitter](https://img.shields.io/gitter/room/stephanmg/c2m2.svg?style=flat-square)](https://gitter.im/stephanmg/c2m2)
+
 
 [![CodeQL](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/codeql-analysis.yml)
 [![Release](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Release.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Release.yml)
