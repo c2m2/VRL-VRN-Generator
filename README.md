@@ -14,7 +14,7 @@ An example project / workflow is provided in the `ex` folder locally after the r
 |---|---|---|
 | [![Linux](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml)  |  [![Windows](https://ci.appveyor.com/api/projects/status/lf67s11e2jreogr5?svg=true)](https://ci.appveyor.com/project/stephanmg/vrl-vrn-generator)  | [![OSX](https://travis-ci.org/c2m2/VRL-VRN-Generator.svg?branch=master)](https://travis-ci.org/c2m2/VRL-VRN-Generator)  |
 
-Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported. If errors occur, feel free to open an issue or contact me directly.
+Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported. 
 
 ### Releases, documentation, license and code metrics
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/c2m2/VRL-VRN-Generator)
@@ -40,7 +40,6 @@ Simply download a release and unzip it. Install the plugin via the VRL-Studio
 plugin tab, restart VRL-Studio and open the example project from the `ex` folder.
 
 ## Latest nightly builds
--   [Thu Mar 18 17:54:11 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47946318/zip)
 -   [Fri Mar 19 10:13:04 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/47963808/zip)
 -   [Fri Mar 19 10:18:14 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48113623/zip)
 -   [Fri Mar 19 10:23:23 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48114741/zip)
