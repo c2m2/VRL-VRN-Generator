@@ -6,7 +6,9 @@ This project enables the user to create VR meshes and bundles thereof in our
 custom container format (`.vrn`) readable in our virtual reality project in Unity.
 
 The *only* prerequisite is a valid installation of VRL-Studio (and the UG binary), see section 
-on howto generate meshes below.
+on howto generate meshes below. **Note:** For now the path to the ugshell binary has to be provided manually until further notice. If the UG installation is allowed to be included into a spinoff project then the only requirement 
+is the VRL-Studio installation.
+
 
 ### Build status
 
@@ -49,9 +51,6 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 
 Familarize with the example workflow, then provide `.swc` files from a database, e.g. *NeuroMorpho.org*.
 
-**Note:** For now the path to the ugshell binary has to be provided manually until further notice.
- If the UG installation is allowed to be included into a spinoff project then the only requirement 
-is the VRL-Studio installation.
 
 ## Latest release
 For the latest releases check the `Releases` tab on the right hand side.
