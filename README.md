@@ -5,8 +5,7 @@ VRL-Studio project for neuron mesh generation and containerizing to .vrn for vir
 This project enables the user to create VR meshes and bundles thereof in our 
 custom container format (`.vrn`) readable in our virtual reality project in Unity.
 
-The *only* prerequisite is a valid installation of VRL-Studio (and the UG binary), see section 
-on howto build the project and generate meshes below. 
+The *only* prerequisite is a valid installation of [VRL-Studio](https://vrl-studio.mihosoft.eu/) (and the UG binary, see [ughub](https://github.com/UG4/ughub)), see section on howto build the project and generate meshes below. 
 
 **Note:** For now the path to the ugshell binary has to be provided manually until further notice. If the UG installation is allowed to be included into a spinoff project then the only requirement 
 is the VRL-Studio installation.
