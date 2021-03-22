@@ -26,7 +26,7 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
    */
   public VRNPluginConfigurator() {
     // specify the plugin name and version 
-    setIdentifier(new PluginIdentifier("VRL-VRN-Generator", "0.0.1"));
+    setIdentifier(new PluginIdentifier("VRL-VRN-Generator", "0.0.2"));
 
     // exported by using the exportPackage() method:
     exportPackage("edu.gcsc.vrl.vr");
