@@ -6,7 +6,9 @@ This project enables the user to create VR meshes and bundles thereof in our
 custom container format (`.vrn`) readable in our virtual reality project in Unity.
 
 The *only* prerequisite is a valid installation of VRL-Studio (and the UG binary), see section 
-on howto generate meshes below. **Note:** For now the path to the ugshell binary has to be provided manually until further notice. If the UG installation is allowed to be included into a spinoff project then the only requirement 
+on howto build the project and generate meshes below. 
+
+**Note:** For now the path to the ugshell binary has to be provided manually until further notice. If the UG installation is allowed to be included into a spinoff project then the only requirement 
 is the VRL-Studio installation.
 
 
@@ -36,7 +38,7 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 ## Workflow for mesh generation in VRL-Studio via the GUI
 ![Demo](../assets/example.png?raw=true)
 
-## Howto generate meshes 
+## Howto build the project and generate meshes 
 
 ### From source
 1.  Clone this repository
@@ -50,13 +52,6 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 3.  Restart VRL-Studio and open the template project from `File->New Project from template`.
 
 Familarize with the example workflow, then provide `.swc` files from a database, e.g. *NeuroMorpho.org*.
-
-
-## Latest release
-For the latest releases check the `Releases` tab on the right hand side.
-Simply download a release and unzip it. Install the plugin via the VRL-Studio
-plugin tab, restart VRL-Studio and open the example project from the
- `File->New Project from Template` within VRL-Studio.
 
 ## Latest nightly builds
 -   [Fri Mar 19 14:42:03 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48144757/zip)
