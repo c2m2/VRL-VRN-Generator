@@ -52,7 +52,6 @@ plugin tab, restart VRL-Studio and open the example project from the
  `File->New Project from Template` within VRL-Studio.
 
 ## Latest nightly builds
--   [Fri Mar 19 10:23:23 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48114741/zip)
--   [Fri Mar 19 10:35:25 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48115710/zip)
--   [Fri Mar 19 11:14:55 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48117923/zip)
 -   [Fri Mar 19 12:53:17 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48125423/zip)
+=======
+-   [Fri Mar 19 14:42:03 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48144757/zip)
