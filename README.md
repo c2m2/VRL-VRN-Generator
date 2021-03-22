@@ -37,13 +37,15 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 
 ## Howto generate meshes from source
 1.  Clone this repository
-2.  Edit build.properties and set path to your VRL installation, usually it is $HOME/.vrl
+2.  (Optional) Edit build.properties and set path to your VRL installation
 3.  `./gradlew installVRLplugin` or `./gradlew jar` and manual copy of plugin's `.jar` file from the `build/libs/` folder.
 4.  Open VRL-Studio
 5.  Open the template project via `File->New Project from template->Mesh generation - Example workflow` from within VRL-Studio
 6.  Familarize with the example workflow, then provide `.swc` files from a database
 
-**Note:** For now the path to the ugshell binary and pipeline script has to be provided manually until further notice. If the UG installation is allowed to be included into a spinoff project then the only requirement is the VRL-Studio installation.
+**Note:** For now the path to the ugshell binary has to be provided manually until further notice.
+ If the UG installation is allowed to be included into a spinoff project then the only requirement 
+is the VRL-Studio installation.
 
 ## Latest release
 For the latest releases check the `Releases` tab on the right hand side.
