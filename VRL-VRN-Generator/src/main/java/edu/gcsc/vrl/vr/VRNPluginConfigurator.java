@@ -7,7 +7,6 @@ import eu.mihosoft.vrl.system.VPluginAPI;
 import eu.mihosoft.vrl.system.VPluginConfigurator;
 import eu.mihosoft.vrl.system.PluginDependency;
 import eu.mihosoft.vrl.system.VMessage;
-import eu.mihosoft.vrl.visual.MessageType;
 import eu.mihosoft.vrl.io.IOUtil;
 import eu.mihosoft.vrl.system.ProjectTemplate;
 
