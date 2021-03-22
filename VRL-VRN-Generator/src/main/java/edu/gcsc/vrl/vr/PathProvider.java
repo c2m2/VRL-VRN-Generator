@@ -8,6 +8,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 
+/**
+ * PathProvider visual component
+ */
 @ComponentInfo(name="PathProvider", category="VR/")
 public class PathProvider implements Serializable
 {
@@ -39,7 +42,7 @@ public class PathProvider implements Serializable
     }
     
     /**
-     * @brief Create a file in the resource folder
+     * Create a file in the resource folder
      * @param fName filename
      * @return File
      */
