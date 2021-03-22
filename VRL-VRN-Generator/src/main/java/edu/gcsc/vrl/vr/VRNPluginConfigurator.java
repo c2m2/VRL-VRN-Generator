@@ -77,16 +77,12 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
 
       /// Install pipeline script
       final File templatePipelineScript = new File(iApi.getResourceFolder(), "pipeline_vr.sh");
-
       InputStream in = VRNPluginConfigurator.class.getResourceAsStream("/edu/gcsc/vrl/vr/pipeline_vr.sh");
-
       saveProjectTemplate(in, templatePipelineScript);
 
       // add template project files
       final File templateProject = new File(iApi.getResourceFolder(), "mesh_generation.vrlp");
-     
       in = VRNPluginConfigurator.class.getResourceAsStream("/edu/gcsc/vrl/vr/mesh-generation.vrlp");
-         
       saveProjectTemplate(in, templateProject);
 
       // register as project templates with VRL

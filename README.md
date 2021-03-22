@@ -5,15 +5,14 @@ VRL-Studio project for neuron mesh generation and containerizing to .vrn for vir
 This project enables the user to create VR meshes and bundles thereof in our 
 custom container format (`.vrn`) readable in our virtual reality project in Unity.
 
-The *only* prerequisite is a valid installation of [VRL-Studio](https://vrl-studio.mihosoft.eu/) (and the UG binary, see [ughub](https://github.com/UG4/ughub)), see section on howto build the project and generate meshes below. 
+The *only* prerequisites are a valid installation of [VRL-Studio](https://vrl-studio.mihosoft.eu/) (and the existence of the UG binary, see [ughub](https://github.com/UG4/ughub)), see section on howto build the project and generate meshes below. 
 
-**Note:** For now the path to the ugshell binary has to be provided manually until further notice. If the UG installation is allowed to be included into a spinoff project then the only requirement 
-is the VRL-Studio installation.
+**Note:** For now the path to the ugshell binary has to be provided manually until further notice. If the license of the UG project allows the binary to be included into a derived project then the only requirement which remains is the VRL-Studio installation in the future.
 
 
 ### Build status
 
-| Linux  | Windows  | OSX  |
+| Linux  | Windows (WSL) | OSX |
 |---|---|---|
 | [![Linux](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml)  |  [![Windows](https://ci.appveyor.com/api/projects/status/lf67s11e2jreogr5?svg=true)](https://ci.appveyor.com/project/stephanmg/vrl-vrn-generator)  | [![OSX](https://travis-ci.org/c2m2/VRL-VRN-Generator.svg?branch=master)](https://travis-ci.org/c2m2/VRL-VRN-Generator)  |
 
