@@ -34,13 +34,20 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 ## Workflow for mesh generation in VRL-Studio via the GUI
 ![Demo](../assets/example.png?raw=true)
 
-## Howto generate meshes from source
+## Howto generate meshes 
+
+### From source
 1.  Clone this repository
 2.  (Optional) Edit build.properties and set path to your VRL installation
-3.  `./gradlew installVRLplugin` or `./gradlew jar` and manual copy of plugin's `.jar` file from the `build/libs/` folder.
-4.  Open VRL-Studio
-5.  Open the template project via `File->New Project from template->Mesh generation - Example workflow` from within VRL-Studio
-6.  Familarize with the example workflow, then provide `.swc` files from a database
+3.  Either `./gradlew installVRLplugin` or `./gradlew jar` and manual installation of the compiled project
+4.  Open the template project via `File->New Project from template->Mesh generation - Example workflow` from within VRL-Studio
+
+### From release (precompiled)
+1.  Download a release from the tab on the right
+2.  Open VRL-Studio and install the plugin via `Plugins->Install Plugin`
+3.  Restart VRL-Studio and open the template project from `File->New Project from template`.
+
+Familarize with the example workflow, then provide `.swc` files from a database, e.g. *NeuroMorpho.org*.
 
 **Note:** For now the path to the ugshell binary has to be provided manually until further notice.
  If the UG installation is allowed to be included into a spinoff project then the only requirement 
