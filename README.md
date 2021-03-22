@@ -58,3 +58,4 @@ plugin tab, restart VRL-Studio and open the example project from the
 =======
 -   [Fri Mar 19 14:42:03 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48144757/zip)
 -   [Mon Mar 22 09:56:07 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48170568/zip)
+-   [Mon Mar 22 09:57:30 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48581917/zip)
