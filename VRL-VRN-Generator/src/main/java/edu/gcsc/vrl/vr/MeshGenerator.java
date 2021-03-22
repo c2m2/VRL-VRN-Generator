@@ -60,14 +60,15 @@ public class MeshGenerator implements Serializable {
       content = content.replaceAll("\\$BINARY", config.getBinaryPath());
       content = content.replaceAll("BINARY.*", "BINARY="+config.getBinaryPath());
       Files.write(path, content.getBytes(charset));
-
       boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 
       ProcessBuilder builder;
       if (!isWindows) {
-        builder = new ProcessBuilder(config.getScriptPath(), "-i " + file.getName(), "-o " + file.getName().replace(".swc", ""));
+        Runtime.getRuntime().exec("chmod u+x " + config.getBinaryPath());
+        builder = new ProcessBuilder(config.getScriptPath(), "-i " + file.getName(), "-o" + file.getName().replace(".swc", ""));
       } else {
-        builder = new ProcessBuilder("cmd.exe", "/c", config.getScriptPath(), "-i " + file.getName(), "-o " + file.getName().replace(".swc", ""));
+        Runtime.getRuntime().exec("cmd.exe /c chmod u+x " + config.getBinaryPath());
+        builder = new ProcessBuilder("cmd.exe", "/c", config.getScriptPath(), "-i " + file.getName(), "-o" + file.getName().replace(".swc", ""));
       }
       builder = builder.directory(new File(file.getParent()));
       Process process = builder.start();

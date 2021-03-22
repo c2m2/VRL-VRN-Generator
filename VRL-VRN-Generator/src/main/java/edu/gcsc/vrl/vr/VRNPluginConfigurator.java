@@ -6,6 +6,16 @@ import eu.mihosoft.vrl.system.PluginIdentifier;
 import eu.mihosoft.vrl.system.VPluginAPI;
 import eu.mihosoft.vrl.system.VPluginConfigurator;
 import eu.mihosoft.vrl.system.PluginDependency;
+import eu.mihosoft.vrl.system.VMessage;
+import eu.mihosoft.vrl.visual.MessageType;
+import eu.mihosoft.vrl.io.IOUtil;
+import eu.mihosoft.vrl.system.ProjectTemplate;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.awt.image.BufferedImage;
 
 /**
  * Registry for visual mesh generation components in workflow
@@ -60,9 +70,74 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
   }
 
   /**
+   * 
    */
   @Override
   public void init(InitPluginAPI iApi) {
-    // nothing to init
-  }
+      PathProvider.plugin = iApi.getResourceFolder();
+
+      /// Install pipeline script
+      final File templatePipelineScript = new File(iApi.getResourceFolder(), "pipeline_vr.sh");
+
+      InputStream in = VRNPluginConfigurator.class.getResourceAsStream("/edu/gcsc/vrl/vr/pipeline_vr.sh");
+
+      saveProjectTemplate(in, templatePipelineScript);
+
+      // add template project files
+      final File templateProject = new File(iApi.getResourceFolder(), "mesh_generation.vrlp");
+     
+      in = VRNPluginConfigurator.class.getResourceAsStream("/edu/gcsc/vrl/vr/mesh-generation.vrlp");
+         
+      saveProjectTemplate(in, templateProject);
+
+      // register as project templates with VRL
+      iApi.addProjectTemplate(new ProjectTemplate()
+         {
+             @Override
+             public String getName()
+             {
+                 return "Mesh generation - Example Workflow";
+             }
+
+             @Override
+             public File getSource()
+             {
+                 return templateProject;
+             }
+
+             @Override
+             public String getDescription()
+             {
+                 return "template for mesh generation and bundling for VR";
+             }
+
+             @Override
+             public BufferedImage getIcon()
+             {
+                 return null;
+             }
+         }
+      );
+ }
+
+   /**
+     * @brief saves the project templates
+     */
+    private void saveProjectTemplate(InputStream in, File outFile)
+    {
+        try
+        {
+            IOUtil.saveStreamToFile(in, outFile);
+        }
+        catch (FileNotFoundException ex)
+        {
+          VMessage.exception("Resource file not found", ex.toString());
+
+        }
+        catch (IOException ex)
+        {
+          VMessage.exception("Resource file could not be loaded", ex.toString());
+        }
+    }
+
 }
