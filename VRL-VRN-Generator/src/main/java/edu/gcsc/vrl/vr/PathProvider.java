@@ -16,7 +16,7 @@ public class PathProvider implements Serializable
     
     /**
      * Get a file from the resource folder
-     * @param fName
+     * @param fName filename
      * @return File
      */
     @MethodInfo(name="Get Resource file", valueName="File")
@@ -40,7 +40,7 @@ public class PathProvider implements Serializable
     
     /**
      * @brief Create a file in the resource folder
-     * @param fName
+     * @param fName filename
      * @return File
      */
     @MethodInfo(name="Create Resource file", valueName="File")
