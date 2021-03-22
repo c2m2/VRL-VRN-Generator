@@ -40,7 +40,7 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 2.  Edit build.properties and set path to your VRL installation, usually it is $HOME/.vrl
 3.  `./gradlew installVRLplugin` or `./gradlew jar` and manual copy of plugin's `.jar` file from the `build/libs/` folder.
 4.  Open VRL-Studio
-5.  Open the template project [mesh generation](ex/mesh-generation.vrlp) from within VRL-Studio found in the example folder `ex` or chose open new template project within VRL-Studio and select `Mesh Generation`.
+5.  Open the template project via `File->New Project from template->Mesh generation - Example workflow` from within VRL-Studio
 6.  Familarize with the example workflow, then provide `.swc` files from a database
 
 **Note:** For now the path to the ugshell binary and pipeline script has to be provided manually until further notice. If the UG installation is allowed to be included into a spinoff project then the only requirement is the VRL-Studio installation.
@@ -48,9 +48,11 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 ## Latest release
 For the latest releases check the `Releases` tab on the right hand side.
 Simply download a release and unzip it. Install the plugin via the VRL-Studio
-plugin tab, restart VRL-Studio and open the example project from the `ex` folder.
+plugin tab, restart VRL-Studio and open the example project from the
+ `File->New Project from Template` within VRL-Studio.
 
 ## Latest nightly builds
--   [Fri Mar 19 10:23:23 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48114741/zip)
--   [Fri Mar 19 10:35:25 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48115710/zip)
--   [Fri Mar 19 11:14:55 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48117923/zip)
+-   [Fri Mar 19 12:53:17 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48125423/zip)
+=======
+-   [Fri Mar 19 14:42:03 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48144757/zip)
+-   [Mon Mar 22 09:56:07 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48170568/zip)

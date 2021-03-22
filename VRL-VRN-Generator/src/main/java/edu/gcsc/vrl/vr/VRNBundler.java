@@ -35,7 +35,7 @@ public class VRNBundler implements Serializable {
     try {
      Files.copy(new File(iFile.getParent() + File.separator + iFile.getName().replace(".swc", "") + File.separator + iFile.getName().replace(".swc", "") + File.separator + iFile.getName().replace(".swc", "") + ".vrn").toPath(), oFile.toPath(), REPLACE_EXISTING);
     } catch (IOException ioe) {
-      String error = "Copying file from " + iFile.getParent() + File.separator + iFile.getName().replace(".swc", "") + File.separator + iFile.getName().replace(".swc", "") + File.separator + iFile.getName().replace(".swc", "") + ".vrn" + " to " + oFile + " failed.";
+      String error = "Copying file from " + (iFile.getParent() + File.separator + iFile.getName().replace(".swc", "") + File.separator + iFile.getName().replace(".swc", "") + File.separator + iFile.getName().replace(".swc", "") + ".vrn");
       VMessage.msg("Copying files failed", error, MessageType.ERROR);
     }
   }

@@ -61,4 +61,20 @@ public class UGConfigurator implements Serializable {
   ) {
      return new UGConfiguration(binary.toString(), script.toString());
   }
+
+  /**
+   * Setup the UG runtime configuration
+   * @param binary path to ugshell binary
+   * Note that the pipeline script will be included in the resource folder
+   * @return UGConfiguration
+   */
+  @MethodInfo(name = "Configure UG binary",valueTypeName="UG configuration", valueName="UG configuration")
+  @OutputInfo(name = "Configuration", style="default", typeName="UG configuration")
+  public UGConfiguration setup
+  (
+    @ParamInfo(name = "Path to ug binary", style="load-dialog") File binary
+  ) {
+    File pathToScript = new File(PathProvider.plugin, "pipeline_vr.sh");
+    return new UGConfiguration(PathProvider.plugin + File.separator + binary.toString(), pathToScript.toString());
+  }
 }
