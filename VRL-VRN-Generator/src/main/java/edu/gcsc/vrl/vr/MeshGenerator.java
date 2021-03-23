@@ -103,10 +103,10 @@ public class MeshGenerator implements Serializable {
         builder =
           new ProcessBuilder(
             "cmd.exe",
-            "/c",
+            "/c bash",
             config.getScriptPath(),
             "-i " + file.getName(),
-            "-o" + file.getName().replace(".swc", "")
+            "-o " + file.getName().replace(".swc", "")
           );
       }
       builder = builder.directory(new File(file.getParent()));
