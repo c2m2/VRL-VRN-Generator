@@ -9,7 +9,10 @@ import eu.mihosoft.vrl.system.PluginDependency;
 import eu.mihosoft.vrl.system.VMessage;
 import eu.mihosoft.vrl.io.IOUtil;
 import eu.mihosoft.vrl.system.ProjectTemplate;
+import eu.mihosoft.vrl.system.VMessage;
+import eu.mihosoft.vrl.visual.MessageType;
 
+import java.io.IOException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -79,6 +82,21 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
       final File templatePipelineScript = new File(iApi.getResourceFolder(), "pipeline_vr.sh");
       InputStream in = VRNPluginConfigurator.class.getResourceAsStream("/edu/gcsc/vrl/vr/pipeline_vr.sh");
       saveProjectTemplate(in, templatePipelineScript);
+      try {
+        boolean isWindows = System
+        .getProperty("os.name")
+        .toLowerCase()
+        .startsWith("windows");
+        if (!isWindows) {
+        Runtime.getRuntime().exec("chmod a+x " + templatePipelineScript);
+        } else {
+          Runtime
+          .getRuntime()
+          .exec("cmd.exe /c chmod u+x " + templatePipelineScript);
+        }
+      } catch (IOException ioe) {
+        VMessage.msg("Mesh generation pileine script not executable", ioe.toString(), MessageType.ERROR);
+      }
 
       // add template project files
       final File templateProject = new File(iApi.getResourceFolder(), "mesh_generation.vrlp");
