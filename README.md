@@ -9,7 +9,6 @@ The *only* prerequisites are a valid installation of [VRL-Studio](https://vrl-st
 
 **Note:** For now the path to the ugshell binary has to be provided manually until further notice. If the license of the UG project allows the binary to be included into a derived project then the only requirement which remains is the VRL-Studio installation in the future.
 
-
 ### Build status
 | Linux  | Windows (WSL) | OSX |
 |---|---|---|
