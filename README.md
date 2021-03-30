@@ -54,6 +54,4 @@ Familarize with the example workflow, then provide `.swc` files from a database,
 -   [Mon Mar 22 11:31:31 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48603843/zip)
 -   [Tue Mar 23 07:12:37 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48605460/zip)
 -   [Mon Mar 29 13:46:21 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50209225/zip)
--   [Tue Mar 30 08:54:28 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50425800/zip)
--   [Tue Mar 30 11:36:15 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50428933/zip)
 -   [Tue Mar 30 11:49:39 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50467051/zip)
