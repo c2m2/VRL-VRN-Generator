@@ -43,8 +43,9 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 4.  Open the template project via `File->New Project from template->Mesh generation - Example workflow` from within VRL-Studio
 
 ### From release (precompiled)
-1.  Download a release from the tab on the right
-2.  Open VRL-Studio and install the plugin via `Plugins->Install Plugin`
+1.  Download a release from the tab on the right (Chose the file `vrl_plugin.zip` from any release)
+2.  Decompress the `vrl-plugin.zip` which will create the file `VRL-VRN-Generator.jar`.
+3.  Open VRL-Studio and install the plugin via `Plugins->Install Plugin` and select `VRL-VRN-Generator.jar`.
 3.  Restart VRL-Studio and open the template project from `File->New Project from template`.
 
 Familarize with the example workflow, then provide `.swc` files from a database, e.g. *NeuroMorpho.org*.
@@ -54,5 +55,3 @@ Familarize with the example workflow, then provide `.swc` files from a database,
 -   [Mon Mar 22 11:31:31 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48603843/zip)
 -   [Tue Mar 23 07:12:37 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48605460/zip)
 -   [Mon Mar 29 13:46:21 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50209225/zip)
--   [Tue Mar 30 11:49:39 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50467051/zip)
--   [Tue Mar 30 11:52:59 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50469711/zip)
