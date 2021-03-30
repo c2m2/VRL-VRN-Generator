@@ -83,9 +83,9 @@ public class MeshGenerator implements Serializable {
       Charset charset = StandardCharsets.UTF_8;
 
       String content = new String(Files.readAllBytes(path), charset);
-      content = content.replaceAll("\\$BINARY", config.getBinaryPath().getAbsolutePath());
+      content = content.replaceAll("\\$BINARY", config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\"));
       content =
-        content.replaceAll("BINARY.*", "BINARY=" + config.getBinaryPath().getAbsolutePath());
+        content.replaceAll("BINARY.*", "BINARY=" + config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\"));
       Files.write(path, content.getBytes(charset));
       boolean isWindows = System
         .getProperty("os.name")
