@@ -110,10 +110,10 @@ public class MeshGenerator implements Serializable {
         } else {
           /// Linux or OSX
           if (!isWindows) {
-            Runtime.getRuntime().exec("chmod u+x " + config.getScriptPath());
+            Runtime.getRuntime().exec("chmod u+x " + Paths.get(config.getScriptPath()).toString());
           /// Windows
           } else {
-            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath());
+            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + Paths.get(config.getScriptPath()).toString());
           }
       }
 
