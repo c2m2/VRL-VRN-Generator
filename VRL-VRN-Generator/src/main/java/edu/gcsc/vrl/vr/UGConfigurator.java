@@ -75,6 +75,6 @@ public class UGConfigurator implements Serializable {
     @ParamInfo(name = "Path to ug binary", style="load-dialog") File binary
   ) {
     File pathToScript = new File(PathProvider.plugin, "pipeline_vr.sh");
-    return new UGConfiguration(PathProvider.plugin + File.separator + binary.toString(), pathToScript.toString());
+    return new UGConfiguration(binary.toString(), pathToScript.toString());
   }
 }

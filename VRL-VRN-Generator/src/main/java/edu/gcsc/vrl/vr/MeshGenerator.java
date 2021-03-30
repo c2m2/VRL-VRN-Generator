@@ -17,6 +17,14 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.AclEntry;
+import java.nio.file.attribute.AclEntryPermission;
+import java.nio.file.attribute.AclEntryType;
+import java.nio.file.attribute.AclFileAttributeView;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.List;
 
 /**
  * Mesh Generator component to generate inflated and refined meshes
@@ -78,18 +86,39 @@ public class MeshGenerator implements Serializable {
       Charset charset = StandardCharsets.UTF_8;
 
       String content = new String(Files.readAllBytes(path), charset);
-      content = content.replaceAll("\\$BINARY", config.getBinaryPath());
+      content = content.replaceAll("\\$BINARY", Paths.get(config.getBinaryPath()).toString());
       content =
-        content.replaceAll("BINARY.*", "BINARY=" + config.getBinaryPath());
+        content.replaceAll("BINARY.*", "BINARY=" + Paths.get(config.getBinaryPath()).toString());
       Files.write(path, content.getBytes(charset));
       boolean isWindows = System
         .getProperty("os.name")
         .toLowerCase()
         .startsWith("windows");
 
+        AclFileAttributeView view = Files.getFileAttributeView(Paths.get(config.getScriptPath()), AclFileAttributeView.class);
+        AclEntry entry = AclEntry.newBuilder()
+        .setType(AclEntryType.ALLOW)
+        .setPrincipal(Files.getOwner(Paths.get(config.getBinaryPath())))
+        .setPermissions(AclEntryPermission.EXECUTE)
+        .build();
+
+        /// All OS supporting ACLs
+        if (view != null) {
+          List<AclEntry> acl = view.getAcl();
+          acl.add(0, entry);
+          view.setAcl(acl);
+        } else {
+          /// Linux or OSX
+          if (!isWindows) {
+            Runtime.getRuntime().exec("chmod u+x " + config.getScriptPath());
+          /// Windows
+          } else {
+            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath());
+          }
+      }
+
       ProcessBuilder builder;
       if (!isWindows) {
-        Runtime.getRuntime().exec("chmod u+x " + config.getBinaryPath());
         builder =
           new ProcessBuilder(
             config.getScriptPath(),
@@ -97,13 +126,10 @@ public class MeshGenerator implements Serializable {
             "-o" + file.getName().replace(".swc", "")
           );
       } else {
-        Runtime
-          .getRuntime()
-          .exec("cmd.exe /c chmod u+x " + config.getBinaryPath());
         builder =
           new ProcessBuilder(
             "cmd.exe",
-            "/c bash",
+            "/c sh",
             config.getScriptPath(),
             "-i " + file.getName(),
             "-o " + file.getName().replace(".swc", "")

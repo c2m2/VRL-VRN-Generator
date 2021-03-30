@@ -16,7 +16,7 @@
 # scripts for VR and non-VR use case
 SCRIPT_3D_VR=test_import_swc_general_var_for_vr_var 
 SCRIPT_3D=test_import_swc_general_var
-BINARY=/home/stephan/Code/git/ug4/bin/ugshell
+BINARY=
 
 # invocation options specified by the user
 echo -n "Mesh generation invoked via: "
@@ -212,11 +212,11 @@ if [ ! -z "${BUNDLE_ONLY}" ]; then
        echo -n "Step 1/3: Creating 1D coarse grid..." >&3
        mkdir -p "${FOLDERNAME}/${FILENAME}" 
        if [ "${METHOD_1D}" = "min" ]; then
-          /home/stephan/Code/git/ug4/bin/ugshell -call "test_import_swc_and_regularize(\"${FILENAME}_collapsed_split_and_smoothed.swc\", -1, \"min\", 0, ${FORCE}, true)" 
+          $BINARY -call "test_import_swc_and_regularize(\"${FILENAME}_collapsed_split_and_smoothed.swc\", -1, \"min\", 0, ${FORCE}, true)" 
        elif [ "${METHOD_1D}" = "angle" ]; then
-          /home/stephan/Code/git/ug4/bin/ugshell -call "test_import_swc_and_regularize(\"${FILENAME}_collapsed_split_and_smoothed.swc\", \"$segLength1D\", \"$METHOD_1D\", 0, ${FORCE}, true, ${MAX_INFLATION})"
+          $BINARY -call "test_import_swc_and_regularize(\"${FILENAME}_collapsed_split_and_smoothed.swc\", \"$segLength1D\", \"$METHOD_1D\", 0, ${FORCE}, true, ${MAX_INFLATION})"
        else
-          /home/stephan/Code/git/ug4/bin/ugshell -call "test_import_swc_and_regularize(\"${FILENAME}_collapsed_split_and_smoothed.swc\", \"$segLength1D\", \"$METHOD_1D\", 0, ${FORCE}, true)"  
+          $BINARY -call "test_import_swc_and_regularize(\"${FILENAME}_collapsed_split_and_smoothed.swc\", \"$segLength1D\", \"$METHOD_1D\", 0, ${FORCE}, true)"  
        fi
        check_exit $? >&3
 
@@ -240,9 +240,9 @@ if [ ! -z "${BUNDLE_ONLY}" ]; then
         for ref in "${REFINEMENTS[@]}"; do
            if [ "${METHOD_1D}" = "min" ]; then
            segLength1D=min
-             /home/stephan/Code/git/ug4/bin/ugshell -call "test_import_swc_and_regularize(\"${FILENAME}_collapsed_split_and_smoothed.swc\", \"$MIN\", \"user\", \"$ref\", ${FORCE}, true)" > log_$ref.log
+             $BINARY -call "test_import_swc_and_regularize(\"${FILENAME}_collapsed_split_and_smoothed.swc\", \"$MIN\", \"user\", \"$ref\", ${FORCE}, true)" > log_$ref.log
            else
-             /home/stephan/Code/git/ug4/bin/ugshell -call "test_import_swc_and_regularize(\"${FILENAME}_collapsed_split_and_smoothed.swc\", \"$segLength1D\", \"$METHOD_1D\", \"$ref\", ${FORCE}, true)" > log_$ref.log 
+             $BINARY -call "test_import_swc_and_regularize(\"${FILENAME}_collapsed_split_and_smoothed.swc\", \"$segLength1D\", \"$METHOD_1D\", \"$ref\", ${FORCE}, true)" > log_$ref.log 
            fi
              cp new_strategy.swc "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${numRef}.swc" 
              # copy coarse grid
@@ -274,11 +274,10 @@ if [ ! -z "${BUNDLE_ONLY}" ]; then
               if [ "${VR}" = "true" ]; then
                 echo "\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\""
 
-/home/stephan/Code/git/ug4/bin/ugshell -call "${SCRIPT_3D_VR}(\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\", false,     0.3, true, 8, 0, true, $inflation, \"$METHOD_3D\", \"$segLength3D\")"
-                #gdb -ex=r --args /home/stephan/Code/git/ug4/bin/ugshell -call "${SCRIPT_3D_VR}(\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\", false, 0.5, true, 8, 0, true, $inflation, \"$METHOD_3D\", \"$segLength3D\")"
+                  $BINARY -call "${SCRIPT_3D_VR}(\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\", false,     0.3, true, 8, 0, true, $inflation, \"$METHOD_3D\", \"$segLength3D\")"
                 fail "$ERROR_CODE"
               else
-                 /home/stephan/Code/git/ug4/bin/ugshell -call "${SCRIPT_3D}(\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\", false, 0.3, true, 8, 0, true, $inflation, false, false, \"$METHOD_3D\", \"$segLength3D\")"
+                 $BINARY -call "${SCRIPT_3D}(\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\", false, 0.3, true, 8, 0, true, $inflation, false, false, \"$METHOD_3D\", \"$segLength3D\")"
               fi
               check_exit $? >&3
               echo "Copying files..."
