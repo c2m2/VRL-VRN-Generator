@@ -19,29 +19,29 @@ public class UGConfigurator implements Serializable {
    * UG runtime configuration
    */
   public class UGConfiguration {
-    private String pathToBinary = "ugshell";
-    private String pathToScript = "";
+    private final File pathToBinary;
+    private final File pathToScript;
     /**
      * Constructs a UG runtime configuration
      * @param pathToBin path to ugshell binary on local filesystem 
      * @param pathToScr path to mesh generation pipeline script on local filesystem
      */
-    public UGConfiguration(String pathToBin, String pathToScr) {
+    public UGConfiguration(File pathToBin, File pathToScr) {
       pathToBinary = pathToBin;
       pathToScript = pathToScr;
     }
 
     /**
-     * @return String
+     * @return File
      */
-    public String getBinaryPath() {
+    public File getBinaryPath() {
       return pathToBinary;
     }
 
     /**
-     * @return String
+     * @return File
      */
-    public String getScriptPath() {
+    public File getScriptPath() {
       return pathToScript;
     }
   }
@@ -59,7 +59,7 @@ public class UGConfigurator implements Serializable {
     @ParamInfo(name = "Path to ug binary", style="load-dialog") File binary,
     @ParamInfo(name = "Path to pipeline script", style="load-dialog") File script
   ) {
-     return new UGConfiguration(binary.toString(), script.toString());
+     return new UGConfiguration(binary, script);
   }
 
   /**
@@ -75,6 +75,6 @@ public class UGConfigurator implements Serializable {
     @ParamInfo(name = "Path to ug binary", style="load-dialog") File binary
   ) {
     File pathToScript = new File(PathProvider.plugin, "pipeline_vr.sh");
-    return new UGConfiguration(binary.toString(), pathToScript.toString());
+    return new UGConfiguration(binary, pathToScript);
   }
 }

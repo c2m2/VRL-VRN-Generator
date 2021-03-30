@@ -79,23 +79,23 @@ public class MeshGenerator implements Serializable {
       MessageType.INFO
     );
     try {
-      Path path = Paths.get(config.getScriptPath());
+      Path path = config.getScriptPath().toPath();
       Charset charset = StandardCharsets.UTF_8;
 
       String content = new String(Files.readAllBytes(path), charset);
-      content = content.replaceAll("\\$BINARY", Paths.get(config.getBinaryPath()).toString());
+      content = content.replaceAll("\\$BINARY", config.getBinaryPath().toString());
       content =
-        content.replaceAll("BINARY.*", "BINARY=" + Paths.get(config.getBinaryPath()).toString());
+        content.replaceAll("BINARY.*", "BINARY=" + config.getBinaryPath().toString());
       Files.write(path, content.getBytes(charset));
       boolean isWindows = System
         .getProperty("os.name")
         .toLowerCase()
         .startsWith("windows");
 
-        AclFileAttributeView view = Files.getFileAttributeView(Paths.get(config.getScriptPath()), AclFileAttributeView.class);
+        AclFileAttributeView view = Files.getFileAttributeView(config.getScriptPath().toPath(), AclFileAttributeView.class);
         AclEntry entry = AclEntry.newBuilder()
         .setType(AclEntryType.ALLOW)
-        .setPrincipal(Files.getOwner(Paths.get(config.getBinaryPath())))
+        .setPrincipal(Files.getOwner(config.getScriptPath().toPath()))
         .setPermissions(AclEntryPermission.EXECUTE)
         .build();
 
@@ -107,10 +107,10 @@ public class MeshGenerator implements Serializable {
         } else {
           /// Linux or OSX
           if (!isWindows) {
-            Runtime.getRuntime().exec("chmod u+x " + Paths.get(config.getScriptPath()).toString());
+            Runtime.getRuntime().exec("chmod u+x " + config.getScriptPath().toString());
           /// Windows
           } else {
-            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + Paths.get(config.getScriptPath()).toString());
+            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString());
           }
       }
 
@@ -118,7 +118,7 @@ public class MeshGenerator implements Serializable {
       if (!isWindows) {
         builder =
           new ProcessBuilder(
-            config.getScriptPath(),
+            config.getScriptPath().toString(),
             "-i " + file.getName(),
             "-o" + file.getName().replace(".swc", "")
           );
@@ -127,7 +127,7 @@ public class MeshGenerator implements Serializable {
           new ProcessBuilder(
             "cmd.exe",
             "/c sh",
-            config.getScriptPath(),
+            config.getScriptPath().toString(),
             "-i " + file.getName(),
             "-o " + file.getName().replace(".swc", "")
           );
