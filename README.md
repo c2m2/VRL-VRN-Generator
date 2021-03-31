@@ -46,7 +46,7 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 1.  Download a release from the tab on the right (Chose the file `vrl_plugin.zip` from any release)
 2.  Decompress the `vrl-plugin.zip` which will create the file `VRL-VRN-Generator.jar`.
 3.  Open VRL-Studio and install the plugin via `Plugins->Install Plugin` and select `VRL-VRN-Generator.jar`.
-3.  Restart VRL-Studio and open the template project from `File->New Project from template`.
+4.  Restart VRL-Studio and open the template project from `File->New Project from template`.
 
 Familarize with the example workflow, then provide `.swc` files from a database, e.g. *NeuroMorpho.org*.
 
