@@ -20,14 +20,14 @@ BINARY=
 
 # invocation options specified by the user
 echo -n "Mesh generation invoked via: "
-tput bold 
-echo -n "$(basename $0) $@"
-tput sgr0 
-echo -n " (See if options suitable via "
-tput bold
-echo -n "$(basename $0) --help [-h]"
-tput sgr0
-echo ")"
+# tput bold 
+# echo -n "$(basename $0) $@"
+# tput sgr0 
+# echo -n " (See if options suitable via "
+# tput bold
+# echo -n "$(basename $0) --help [-h]"
+# tput sgr0
+# echo ")"
 
 # usage message
 usage() { 
@@ -290,8 +290,8 @@ if [ ! -z "${BUNDLE_ONLY}" ]; then
               cp after_selecting_boundary_elements_tris.ugx "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_tris_x${inflation}_ref_${ref}.ugx"
               cp after_selecting_boundary_elements.ugx "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_x${inflation}_ref_${ref}.ugx"
             if [ "${REMOVE_ATTACHMENTS}" = "true" ]; then
-                sed '/.*vertex_attachment.*/d' "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_tris_x${inflation}_ref_${ref}.ugx" > "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_tris_x${inflation}_ref_${ref}_wo_attachments.ugx"
-                sed '/.*vertex_attachment.*/d' "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_x${inflation}_ref_${ref}.ugx" > "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_x${inflation}_ref_${ref}_wo_attachments.ugx"
+               #  sed '/.*vertex_attachment.*/d' "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_tris_x${inflation}_ref_${ref}.ugx" > "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_tris_x${inflation}_ref_${ref}_wo_attachments.ugx"
+               # sed '/.*vertex_attachment.*/d' "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_x${inflation}_ref_${ref}.ugx" > "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_x${inflation}_ref_${ref}_wo_attachments.ugx"
               fi
           fi
             rm after_selecting_boundary_elements_tris.ugx

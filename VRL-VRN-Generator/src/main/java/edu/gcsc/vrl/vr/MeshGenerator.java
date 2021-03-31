@@ -127,10 +127,11 @@ public class MeshGenerator implements Serializable {
             "cmd.exe",
             "/c sh",
             config.getScriptPath().toString().replace("\\", "\\\\"),
-            "-i " + file.getName(),
-            "-o " + file.getName().replace(".swc", "")
+            "-i " + file.getName().replace("\\", "\\\\"),
+            "-o " + file.getName().replace(".swc", "").replace("\\", "\\\\")
           );
       }
+ 
       builder = builder.directory(new File(file.getParent()));
       Process process = builder.start();
       InputStream is = process.getInputStream();
