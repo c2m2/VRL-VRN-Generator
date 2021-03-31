@@ -82,9 +82,9 @@ public class MeshGenerator implements Serializable {
       Charset charset = StandardCharsets.UTF_8;
 
       String content = new String(Files.readAllBytes(path), charset);
-      content = content.replaceAll("\\$BINARY", config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\"));
+      content = content.replaceAll("\\$BINARY", config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\\\"));
       content =
-        content.replaceAll("BINARY.*", "BINARY=" + config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\"));
+        content.replaceAll("BINARY.*", "BINARY=" + config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\\\"));
       Files.write(path, content.getBytes(charset));
       boolean isWindows = System
         .getProperty("os.name")
@@ -109,7 +109,7 @@ public class MeshGenerator implements Serializable {
             Runtime.getRuntime().exec("chmod u+x " + config.getScriptPath().toString());
           /// Windows
           } else {
-            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString().replace("\\", "\\\\"));
+            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString().replace("\\", "\\\\\\"));
           }
       }
 
