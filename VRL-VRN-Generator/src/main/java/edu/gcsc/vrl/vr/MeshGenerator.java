@@ -109,7 +109,7 @@ public class MeshGenerator implements Serializable {
             Runtime.getRuntime().exec("chmod u+x " + config.getScriptPath().toString());
           /// Windows
           } else {
-            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString());
+            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString().replace("\\", "\\\\"));
           }
       }
 
@@ -126,7 +126,7 @@ public class MeshGenerator implements Serializable {
           new ProcessBuilder(
             "cmd.exe",
             "/c sh",
-            config.getScriptPath().toString(),
+            config.getScriptPath().toString().replace("\\", "\\\\"),
             "-i " + file.getName(),
             "-o " + file.getName().replace(".swc", "")
           );
