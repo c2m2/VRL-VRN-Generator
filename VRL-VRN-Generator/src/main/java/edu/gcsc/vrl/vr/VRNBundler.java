@@ -69,7 +69,7 @@ public class VRNBundler implements Serializable {
           iFile.getName().replace(".swc", "") +
           ".vrn"
         );
-      VMessage.msg("Copying files failed", error, MessageType.ERROR);
+      VMessage.msg("Meshes couldn't be created and thus aren't bundled into a .vrn archive", error, MessageType.ERROR);
     }
   }
 }

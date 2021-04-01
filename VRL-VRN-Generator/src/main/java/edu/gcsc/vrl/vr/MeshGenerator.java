@@ -82,9 +82,7 @@ public class MeshGenerator implements Serializable {
       Charset charset = StandardCharsets.UTF_8;
 
       String content = new String(Files.readAllBytes(path), charset);
-      content = content.replaceAll("\\$BINARY", config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\\\"));
-      content =
-        content.replaceAll("BINARY.*", "BINARY=" + config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\\\"));
+      content = content.replace("$BINARY", config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\"));
       Files.write(path, content.getBytes(charset));
       boolean isWindows = System
         .getProperty("os.name")
@@ -109,7 +107,7 @@ public class MeshGenerator implements Serializable {
             Runtime.getRuntime().exec("chmod u+x " + config.getScriptPath().toString());
           /// Windows
           } else {
-            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString().replace("\\", "\\\\\\"));
+            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString().replace("\\", "\\\\"));
           }
       }
 
@@ -118,17 +116,19 @@ public class MeshGenerator implements Serializable {
         builder =
           new ProcessBuilder(
             config.getScriptPath().toString(),
-            "-i " + file.getName(),
+            "-i" + file.getName(),
             "-o" + file.getName().replace(".swc", "")
           );
+
+          System.out.println("output folder: >>" +  file.getName().replace(".swc", "").replace("\\", "\\\\") + "<<");
       } else {
         builder =
           new ProcessBuilder(
             "cmd.exe",
             "/c sh",
             config.getScriptPath().toString().replace("\\", "\\\\"),
-            "-i " + file.getName().replace("\\", "\\\\"),
-            "-o " + file.getName().replace(".swc", "").replace("\\", "\\\\")
+            "-i" + file.getName().replace("\\", "\\\\"),
+            "-o" + file.getName().replace(".swc", "").replace("\\", "\\\\")
           );
       }
  
@@ -142,8 +142,9 @@ public class MeshGenerator implements Serializable {
       while ((line = br.readLine()) != null) {
         System.out.println(line);
       }
+
     } catch (IOException ioe) {
-      VMessage.msg("Mesh generation failed", ioe.toString(), MessageType.ERROR);
+      VMessage.msg("Mesh generation failed check console for details", ioe.toString(), MessageType.ERROR);
     }
     return file;
   }

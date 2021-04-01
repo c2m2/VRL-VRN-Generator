@@ -16,18 +16,18 @@
 # scripts for VR and non-VR use case
 SCRIPT_3D_VR=test_import_swc_general_var_for_vr_var 
 SCRIPT_3D=test_import_swc_general_var
-BINARY=
+BINARY=/home/stephan/Code/git/ug4/bin/ugshell
 
 # invocation options specified by the user
 echo -n "Mesh generation invoked via: "
 # tput bold 
-# echo -n "$(basename $0) $@"
+echo -n "$(basename $0) $@"
 # tput sgr0 
-# echo -n " (See if options suitable via "
+echo -n " (See if options suitable via "
 # tput bold
-# echo -n "$(basename $0) --help [-h]"
+echo -n "$(basename $0) --help [-h]"
 # tput sgr0
-# echo ")"
+echo ")"
 
 # usage message
 usage() { 
@@ -274,7 +274,8 @@ if [ ! -z "${BUNDLE_ONLY}" ]; then
               if [ "${VR}" = "true" ]; then
                 echo "\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\""
 
-                  $BINARY -call "${SCRIPT_3D_VR}(\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\", false,     0.3, true, 8, 0, true, $inflation, \"$METHOD_3D\", \"$segLength3D\")"
+$BINARY -call "${SCRIPT_3D_VR}(\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\", false,     0.3, true, 8, 0, true, $inflation, \"$METHOD_3D\", \"$segLength3D\")"
+                #gdb -ex=r --args $BINARY -call "${SCRIPT_3D_VR}(\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\", false, 0.5, true, 8, 0, true, $inflation, \"$METHOD_3D\", \"$segLength3D\")"
                 fail "$ERROR_CODE"
               else
                  $BINARY -call "${SCRIPT_3D}(\"${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_1d_ref_${ref}.swc\", false, 0.3, true, 8, 0, true, $inflation, false, false, \"$METHOD_3D\", \"$segLength3D\")"
@@ -289,10 +290,10 @@ if [ ! -z "${BUNDLE_ONLY}" ]; then
 
               cp after_selecting_boundary_elements_tris.ugx "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_tris_x${inflation}_ref_${ref}.ugx"
               cp after_selecting_boundary_elements.ugx "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_x${inflation}_ref_${ref}.ugx"
-            if [ "${REMOVE_ATTACHMENTS}" = "true" ]; then
-               #  sed '/.*vertex_attachment.*/d' "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_tris_x${inflation}_ref_${ref}.ugx" > "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_tris_x${inflation}_ref_${ref}_wo_attachments.ugx"
-               # sed '/.*vertex_attachment.*/d' "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_x${inflation}_ref_${ref}.ugx" > "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_x${inflation}_ref_${ref}_wo_attachments.ugx"
-              fi
+ #           if [ "${REMOVE_ATTACHMENTS}" = "true" ]; then
+  #               sed '/.*vertex_attachment.*/d' "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_tris_x${inflation}_ref_${ref}.ugx" > "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_tris_x${inflation}_ref_${ref}_wo_attachments.ugx"
+   #              sed '/.*vertex_attachment.*/d' "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_x${inflation}_ref_${ref}.ugx" > "${FOLDERNAME}/${FILENAME}/${FILENAME}_segLength=${segLength1D}_3d_x${inflation}_ref_${ref}_wo_attachments.ugx"
+    #          fi
           fi
             rm after_selecting_boundary_elements_tris.ugx
             rm after_selecting_boundary_elements.ugx
@@ -361,3 +362,25 @@ cd ${FOLDERNAME}/${FILENAME}
 zip -j -x "*_wo_attachments.ugx" -x "*_3d_x*.ugx" -r ${FILENAME}.vrn MetaInfo.json *ugx
 cd ../../
 done
+
+# upload to google drive (`get_my_token` gives us the OAUTH2 token to access google's API)
+#echo "Do you wish to upload your generated meshes into a cloud storage (Google Drive)?"
+#select yn in "Yes" "No" 
+#do
+#case $yn in
+#   Yes)
+#   for file in "$FILE_PATTERN"; do
+#      cd ${FOLDERNAME}/${FILENAME}
+#      FILENAME=${file%*.swc}
+#      curl -X POST -L \
+#      -H "Authorization: Bearer `get_my_token`" \
+#      -F "metadata={name : '${FILENAME}.vrn'};type=application/json;charset=UTF-8" \
+#      -F "file=@${FILENAME}.vrn;type=application/zip" \
+#       "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart"
+#      done
+#    ;;
+#   *)
+#    exit
+#    ;;
+#esac
+#done
