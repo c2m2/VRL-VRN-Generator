@@ -119,17 +119,20 @@ public class MeshGenerator implements Serializable {
             "-i" + file.getName(),
             "-o" + file.getName().replace(".swc", "")
           );
-
-          System.out.println("output folder: >>" +  file.getName().replace(".swc", "").replace("\\", "\\\\") + "<<");
       } else {
         builder =
           new ProcessBuilder(
             "cmd.exe",
             "/c sh",
-            config.getScriptPath().toString().replace("\\", "\\\\"),
+            config.getScriptPath().getAbsolutePath().replace("\\", "\\\\"),
             "-i" + file.getName().replace("\\", "\\\\"),
             "-o" + file.getName().replace(".swc", "").replace("\\", "\\\\")
           );
+
+          System.err.println("cmd.exe /c sh" + config.getScriptPath().getAbsolutePath().replace("\\", "\\\\") +
+          "-i" + file.getName().replace("\\", "\\\\") +   "-o" + file.getName().replace(".swc", "").replace("\\", "\\\\"));
+          VMessage.msg("cmd.exe /c sh" + config.getScriptPath().getAbsolutePath().replace("\\", "\\\\") +
+          "-i" + file.getName().replace("\\", "\\\\") +   "-o" + file.getName().replace(".swc", "").replace("\\", "\\\\"), "", MessageType.INFO);
       }
  
       builder = builder.directory(new File(file.getParent()));
