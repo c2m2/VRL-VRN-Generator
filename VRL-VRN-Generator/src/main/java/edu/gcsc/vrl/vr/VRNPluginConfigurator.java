@@ -61,6 +61,7 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
       vapi.addComponent(MeshGenerator.class);
       vapi.addComponent(VRNBundler.class);
       vapi.addComponent(UGConfigurator.class);
+      vapi.addComponent(PathProvider.class);
     }
   }
 
@@ -88,18 +89,23 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
         .toLowerCase()
         .startsWith("windows");
         if (!isWindows) {
-        Runtime.getRuntime().exec("chmod a+x " + templatePipelineScript);
+          Runtime.getRuntime().exec("chmod a+x " + templatePipelineScript);
         } else {
           Runtime
           .getRuntime()
           .exec("cmd.exe /c chmod u+x " + templatePipelineScript);
         }
       } catch (IOException ioe) {
-        VMessage.msg("Mesh generation pileine script not executable", ioe.toString(), MessageType.ERROR);
+        VMessage.msg("Mesh generation pipeline script not executable", ioe.toString(), MessageType.ERROR);
       }
 
+      /// Add neuron geometry resource
+      final File templateGeometry = new File(iApi.getResourceFolder(), "neuron.swc");
+      in = VRNPluginConfigurator.class.getResourceAsStream("/edu/gcsc/vrl/vr/neuron.swc");
+      saveProjectTemplate(in, templateGeometry);
+
       // add template project files
-      final File templateProject = new File(iApi.getResourceFolder(), "mesh_generation.vrlp");
+      final File templateProject = new File(iApi.getResourceFolder(), "mesh-generation.vrlp");
       in = VRNPluginConfigurator.class.getResourceAsStream("/edu/gcsc/vrl/vr/mesh-generation.vrlp");
       saveProjectTemplate(in, templateProject);
 
@@ -121,7 +127,7 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
              @Override
              public String getDescription()
              {
-                 return "template for mesh generation and bundling for VR";
+                 return "Template for mesh generation and bundling for VR";
              }
 
              @Override
@@ -131,6 +137,40 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
              }
          }
       );
+
+      final File templateProjectWithGeometry = new File(iApi.getResourceFolder(), "mesh-generation-with-geometry.vrlp");
+      in = VRNPluginConfigurator.class.getResourceAsStream("/edu/gcsc/vrl/vr/mesh-generation-with-geometry.vrlp");
+      saveProjectTemplate(in, templateProjectWithGeometry);
+
+      // register as project templates with VRL
+      iApi.addProjectTemplate(new ProjectTemplate()
+         {
+             @Override
+             public String getName()
+             {
+                 return "Mesh generation - Example Workflow with Geometry";
+             }
+
+             @Override
+             public File getSource()
+             {
+                 return templateProjectWithGeometry;
+             }
+
+             @Override
+             public String getDescription()
+             {
+                 return "Template for mesh generation and bundling for VR with a preselected neuron";
+             }
+
+             @Override
+             public BufferedImage getIcon()
+             {
+                 return null;
+             }
+         }
+      );
+
  }
 
    /**
