@@ -52,6 +52,8 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 4.  Restart VRL-Studio and open the template project from `File->New Project from template`.
 
 Familarize with the example workflow, then provide `.swc` files from a database, e.g. *NeuroMorpho.org*.
+Likewise there is a template project which ships with the mesh generation tool via `File->New Project from template` and
+then chose `Mesh Generation - Example workflow with geometry`.
 
 ## Latest nightly builds
 -   [Fri Mar 19 14:42:03 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48144757/zip)
