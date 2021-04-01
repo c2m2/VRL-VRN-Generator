@@ -31,10 +31,10 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 [![README](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Deploy.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Deploy.yml)
 [![Build](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml/badge.svg)](https://github.com/c2m2/VRL-VRN-Generator/actions/workflows/Build.yml)
 
-## Workflow for mesh generation in VRL-Studio via the GUI and a user neuron
+## Workflow for mesh generation in VRL-Studio and a user neuron
 ![Demo with user geometry](../assets/example.png?raw=true)
 
-## Workflow for mesh generation in VRL-Studio via the GUI and a shipped neuron
+## Workflow for mesh generation in VRL-Studio and a shipped neuron
 ![Demo with shipped geometry](../assets/example_with_geometry.png?raw=true)
 
 ## Howto build the project and generate meshes 
@@ -61,5 +61,4 @@ Familarize with the example workflow, then provide `.swc` files from a database,
 -   [Wed Mar 31 07:28:33 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50470307/zip)
 -   [Wed Mar 31 12:24:26 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50688007/zip)
 -   [Wed Mar 31 13:09:36 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50753739/zip)
--   [Thu Apr  1 08:23:22 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50765039/zip)
 -   [Thu Apr  1 08:46:45 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/50982102/zip)
