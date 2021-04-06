@@ -81,10 +81,10 @@ public class MeshGenerator implements Serializable {
       MessageType.INFO
     );
       /// Make mesh generation script executable
-      make_executable(config);
+      makeExecutable(config);
 
       /// Run mesh generation script
-      run_executable(config, file);
+      runExecutable(config, file);
 
       /// Allow to pass input file to mesh bundler in workflow
       return file;
@@ -94,7 +94,7 @@ public class MeshGenerator implements Serializable {
    * Make script executable specified in ug runtime configuration
    * @param config ug runtime configuration
    */
-  private void make_executable(UGConfigurator.UGConfiguration config) {
+  private void makeExecutable(UGConfigurator.UGConfiguration config) {
       try {
         AclFileAttributeView view = Files.getFileAttributeView(config.getScriptPath().toPath(), AclFileAttributeView.class);
         AclEntry entry = AclEntry.newBuilder()
@@ -127,7 +127,7 @@ public class MeshGenerator implements Serializable {
    * @param config ug runtime configuration
    * @param file geometry file
    */
-  private void run_executable(UGConfigurator.UGConfiguration config, File file) {
+  private void runExecutable(UGConfigurator.UGConfiguration config, File file) {
     try {
       Path path = config.getScriptPath().toPath();
       Charset charset = StandardCharsets.UTF_8;
