@@ -34,6 +34,9 @@ public class MeshGenerator implements Serializable {
   /// necessary for session serialization
   private static final long serialVersionUID = 1L;
 
+  /// Windows 
+  private static final boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
+
   /**
    * Generate 1D and 2D meshes
    * @param file input file name of file type .swc
@@ -77,6 +80,54 @@ public class MeshGenerator implements Serializable {
       "Mesh inflations and refinements are being created",
       MessageType.INFO
     );
+      /// Make mesh generation script executable
+      make_executable(config);
+
+      /// Run mesh generation script
+      run_executable(config, file);
+
+      /// Allow to pass input file to mesh bundler in workflow
+      return file;
+  }
+
+  /**
+   * Make script executable specified in ug runtime configuration
+   * @param config ug runtime configuration
+   */
+  private void make_executable(UGConfigurator.UGConfiguration config) {
+      try {
+        AclFileAttributeView view = Files.getFileAttributeView(config.getScriptPath().toPath(), AclFileAttributeView.class);
+        AclEntry entry = AclEntry.newBuilder()
+         .setType(AclEntryType.ALLOW)
+         .setPrincipal(Files.getOwner(config.getScriptPath().toPath()))
+         .setPermissions(AclEntryPermission.EXECUTE)
+         .build();
+
+        /// All OS supporting ACLs
+        if (view != null) {
+          List<AclEntry> acl = view.getAcl();
+          acl.add(0, entry);
+          view.setAcl(acl);
+        } else {
+          if (!isWindows) {
+           /// Linux or OSX
+           Runtime.getRuntime().exec("chmod u+x " + config.getScriptPath().toString());
+          } else {
+           /// Windows WSL
+           Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString().replace("\\", "\\\\"));
+          }
+        }
+    } catch (IOException ioe) {
+      VMessage.msg("Mesh generation failed: Pipeline script not executable. Check console for details.", ioe.toString(), MessageType.ERROR);
+    }
+  }
+
+  /**
+   * Run executable to generate mesh with supplied file and ug runtime configuration
+   * @param config ug runtime configuration
+   * @param file geometry file
+   */
+  private void run_executable(UGConfigurator.UGConfiguration config, File file) {
     try {
       Path path = config.getScriptPath().toPath();
       Charset charset = StandardCharsets.UTF_8;
@@ -84,29 +135,6 @@ public class MeshGenerator implements Serializable {
       String content = new String(Files.readAllBytes(path), charset);
       content = content.replace("$BINARY", config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\"));
       Files.write(path, content.getBytes(charset));
-      boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
-
-      AclFileAttributeView view = Files.getFileAttributeView(config.getScriptPath().toPath(), AclFileAttributeView.class);
-      AclEntry entry = AclEntry.newBuilder()
-      .setType(AclEntryType.ALLOW)
-      .setPrincipal(Files.getOwner(config.getScriptPath().toPath()))
-      .setPermissions(AclEntryPermission.EXECUTE)
-      .build();
-
-      /// All OS supporting ACLs
-      if (view != null) {
-        List<AclEntry> acl = view.getAcl();
-        acl.add(0, entry);
-        view.setAcl(acl);
-      } else {
-        if (!isWindows) {
-         /// Linux or OSX
-         Runtime.getRuntime().exec("chmod u+x " + config.getScriptPath().toString());
-        } else {
-         /// Windows WSL
-         Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString().replace("\\", "\\\\"));
-        }
-      }
 
       ProcessBuilder builder;
       if (!isWindows) {
@@ -150,6 +178,5 @@ public class MeshGenerator implements Serializable {
     } catch (IOException ioe) {
       VMessage.msg("Mesh generation failed check console for details", ioe.toString(), MessageType.ERROR);
     }
-    return file;
   }
 }
