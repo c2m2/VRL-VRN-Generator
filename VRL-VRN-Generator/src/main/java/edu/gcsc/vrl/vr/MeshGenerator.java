@@ -176,7 +176,7 @@ public class MeshGenerator implements Serializable {
       }
 
     } catch (IOException ioe) {
-      VMessage.msg("Mesh generation failed check console for details", ioe.toString(), MessageType.ERROR);
+      VMessage.msg("Mesh generation failed: Pipeline script couldn't be run. Check console for details.", ioe.toString(), MessageType.ERROR);
     }
   }
 }
