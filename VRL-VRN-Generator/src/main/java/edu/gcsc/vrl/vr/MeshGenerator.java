@@ -45,6 +45,7 @@ public class MeshGenerator implements Serializable {
    * @param smooth if true mesh is pre-refined otherwise not
    * @param segLength segment length for 1D mesh regularization in physiological units (µm)
    * @param config run configuration for the ugshell binary which executes the mesh generation pipeline
+   * @return input file
    */
   @MethodInfo(
     name = "Mesh folder",
@@ -85,8 +86,12 @@ public class MeshGenerator implements Serializable {
 
       /// Configure mesh generation script parameters with values
       MeshingParameter meshingParameters = 
-        new MeshingParameterBuilder(smooth).
-          setRefinement(refinement).setInflation(inflation).setSegLength(segLength).build();
+        new MeshingParameterBuilder()
+          .setSmoothing(smooth)
+          .setRefinement(refinement)
+          .setInflation(inflation)
+          .setSegLength(segLength)
+          .build();
 
       /// Run mesh generation script with parameter values
       runExecutable(config, file, meshingParameters);

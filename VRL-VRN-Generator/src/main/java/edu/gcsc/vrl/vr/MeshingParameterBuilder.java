@@ -3,18 +3,25 @@ package edu.gcsc.vrl.vr;
 /**
  * MeshingParameterBuilder
  */
-public class MeshingParameterBuilder {
-    private boolean smooth;
-    private int segLength;
-    private int refinement;
-    private int inflation;
+public final class MeshingParameterBuilder {
+    private boolean smooth = false;
+    private int segLength = 4;
+    private int refinement = 0;
+    private int inflation = 1;
+
+    /**
+     * Empty configuration
+     */
+    public MeshingParameterBuilder() {
+    }
 
     /**
      * Set smoothing 
      * @param smooth presmooth or not
      */
-    public MeshingParameterBuilder(final boolean smooth) {
+    public MeshingParameterBuilder setSmoothing(final boolean smooth) {
         this.smooth = smooth;
+        return this;
     }
 
     /**

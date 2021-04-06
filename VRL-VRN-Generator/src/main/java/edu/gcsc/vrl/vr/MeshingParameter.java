@@ -3,11 +3,11 @@ package edu.gcsc.vrl.vr;
 /**
  * MeshingParameter
  */
-public class MeshingParameter {
-    public final boolean smooth;
-    public final int inflation;
-    public final int refinement;
-    public final int segLength;
+public final class MeshingParameter {
+    private final boolean smooth;
+    private final int inflation;
+    private final int refinement;
+    private final int segLength;
     
     /**
      * Create Meshing Parameters
@@ -22,4 +22,25 @@ public class MeshingParameter {
         this.refinement = refinement;
         this.segLength = segLength;
     }
+
+    /**
+     * Get smooth
+     * @return smooth
+     */
+    public boolean getSmooth() { return smooth; }
+    /**
+     * Get inflation
+     * @return inflation level
+     */
+    public int getInflation() { return inflation; }
+    /**
+     * Get refinement
+     * @return number of refinements
+     */
+    public int getRefinement() { return refinement; }
+    /**
+     * Get segment length
+     * @return segment length
+     */
+    public int getSegLength() { return segLength;}
 }
