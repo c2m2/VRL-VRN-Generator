@@ -84,35 +84,33 @@ public class MeshGenerator implements Serializable {
       String content = new String(Files.readAllBytes(path), charset);
       content = content.replace("$BINARY", config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\"));
       Files.write(path, content.getBytes(charset));
-      boolean isWindows = System
-        .getProperty("os.name")
-        .toLowerCase()
-        .startsWith("windows");
+      boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
 
-        AclFileAttributeView view = Files.getFileAttributeView(config.getScriptPath().toPath(), AclFileAttributeView.class);
-        AclEntry entry = AclEntry.newBuilder()
-        .setType(AclEntryType.ALLOW)
-        .setPrincipal(Files.getOwner(config.getScriptPath().toPath()))
-        .setPermissions(AclEntryPermission.EXECUTE)
-        .build();
+      AclFileAttributeView view = Files.getFileAttributeView(config.getScriptPath().toPath(), AclFileAttributeView.class);
+      AclEntry entry = AclEntry.newBuilder()
+      .setType(AclEntryType.ALLOW)
+      .setPrincipal(Files.getOwner(config.getScriptPath().toPath()))
+      .setPermissions(AclEntryPermission.EXECUTE)
+      .build();
 
-        /// All OS supporting ACLs
-        if (view != null) {
-          List<AclEntry> acl = view.getAcl();
-          acl.add(0, entry);
-          view.setAcl(acl);
+      /// All OS supporting ACLs
+      if (view != null) {
+        List<AclEntry> acl = view.getAcl();
+        acl.add(0, entry);
+        view.setAcl(acl);
+      } else {
+        if (!isWindows) {
+         /// Linux or OSX
+         Runtime.getRuntime().exec("chmod u+x " + config.getScriptPath().toString());
         } else {
-          /// Linux or OSX
-          if (!isWindows) {
-            Runtime.getRuntime().exec("chmod u+x " + config.getScriptPath().toString());
-          /// Windows
-          } else {
-            Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString().replace("\\", "\\\\"));
-          }
+         /// Windows WSL
+         Runtime.getRuntime().exec("cmd.exe /c sh -c \"chmod u+x\" " + config.getScriptPath().toString().replace("\\", "\\\\"));
+        }
       }
 
       ProcessBuilder builder;
       if (!isWindows) {
+        /// OSX and Linux
         builder =
           new ProcessBuilder(
             config.getScriptPath().toString(),
@@ -120,17 +118,20 @@ public class MeshGenerator implements Serializable {
             "-o" + file.getName().replace(".swc", "")
           );
       } else {
+        /// Windows WSL (Getopts not guaranteed to be available on WSL-enabled devices)
+        content = content.replace("FILE_PATTERN=", "FILE_PATTERN=" + file.getName().replace("\\", "\\\\"));
+        content = content.replace("FOLDERNAME=", "FOLDERNAME=" + file.getName().replace(".swc", "").replace("\\", "\\\\"));
         builder =
           new ProcessBuilder(
             "cmd.exe",
             "/c sh",
-            config.getScriptPath().getAbsolutePath().replace("\\", "\\\\"),
-            "-i" + file.getName().replace("\\", "\\\\"),
-            "-o" + file.getName().replace(".swc", "").replace("\\", "\\\\")
+            config.getScriptPath().getAbsolutePath().replace("\\", "\\\\")
           );
 
+          /// Temporary debug output for Windows builds
           System.err.println("cmd.exe /c sh" + config.getScriptPath().getAbsolutePath().replace("\\", "\\\\") +
           "-i" + file.getName().replace("\\", "\\\\") +   "-o" + file.getName().replace(".swc", "").replace("\\", "\\\\"));
+
           VMessage.msg("cmd.exe /c sh" + config.getScriptPath().getAbsolutePath().replace("\\", "\\\\") +
           "-i" + file.getName().replace("\\", "\\\\") +   "-o" + file.getName().replace(".swc", "").replace("\\", "\\\\"), "", MessageType.INFO);
       }
