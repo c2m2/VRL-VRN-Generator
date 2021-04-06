@@ -57,23 +57,23 @@ public class MeshGenerator implements Serializable {
       name = "Input file",
       style = "load-dialog",
       options = "endings=[\"swc\"]; description=\"SWC files (.swc)\""
-    ) File file,
+    ) final File file,
     @ParamInfo(
       name = "Inflation factor 2D",
       options = "value=1;min=1;max=100",
       style = "slider"
-    ) int inflation,
+    ) final int inflation,
     @ParamInfo(
       name = "Number of 1D Refinements",
       options = "value=0;min=0;max=10",
       style = "slider"
-    ) int refinement,
-    @ParamInfo(name = "Pre-smooth") boolean smooth,
+    ) final int refinement,
+    @ParamInfo(name = "Pre-smooth") final boolean smooth,
     @ParamInfo(
       name = "Segment length",
       options = "value=4;min=1;max=255"
-    ) int segLength,
-    @ParamInfo(name = "UG configuration") UGConfigurator.UGConfiguration config
+    ) final int segLength,
+    @ParamInfo(name = "UG configuration") final UGConfigurator.UGConfiguration config
   ) {
     VMessage.msg(
       "Generating meshes",
@@ -83,8 +83,13 @@ public class MeshGenerator implements Serializable {
       /// Make mesh generation script executable
       makeExecutable(config);
 
-      /// Run mesh generation script
-      runExecutable(config, file);
+      /// Configure mesh generation script parameters with values
+      MeshingParameter meshingParameters = 
+        new MeshingParameterBuilder(smooth).
+          setRefinement(refinement).setInflation(inflation).setSegLength(segLength).build();
+
+      /// Run mesh generation script with parameter values
+      runExecutable(config, file, meshingParameters);
 
       /// Allow to pass input file to mesh bundler in workflow
       return file;
@@ -94,7 +99,7 @@ public class MeshGenerator implements Serializable {
    * Make script executable specified in ug runtime configuration
    * @param config ug runtime configuration
    */
-  private void makeExecutable(UGConfigurator.UGConfiguration config) {
+  private void makeExecutable(final UGConfigurator.UGConfiguration config) {
       try {
         AclFileAttributeView view = Files.getFileAttributeView(config.getScriptPath().toPath(), AclFileAttributeView.class);
         AclEntry entry = AclEntry.newBuilder()
@@ -126,8 +131,9 @@ public class MeshGenerator implements Serializable {
    * Run executable to generate mesh with supplied file and ug runtime configuration
    * @param config ug runtime configuration
    * @param file geometry file
+   * @param meshingParameters values for parameters of mesh generation script
    */
-  private void runExecutable(UGConfigurator.UGConfiguration config, File file) {
+  private void runExecutable(final UGConfigurator.UGConfiguration config, final File file, final MeshingParameter meshingParameters) {
     try {
       Path path = config.getScriptPath().toPath();
       Charset charset = StandardCharsets.UTF_8;
