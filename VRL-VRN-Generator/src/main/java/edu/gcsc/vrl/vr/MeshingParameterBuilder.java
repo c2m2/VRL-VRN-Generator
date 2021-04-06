@@ -10,12 +10,6 @@ public final class MeshingParameterBuilder {
     private int inflation = 1;
 
     /**
-     * Empty configuration
-     */
-    public MeshingParameterBuilder() {
-    }
-
-    /**
      * Set smoothing 
      * @param smooth presmooth or not
      */

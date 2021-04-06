@@ -94,7 +94,7 @@ public class MeshGenerator implements Serializable {
           .build();
 
       /// Run mesh generation script with parameter values
-      runExecutable(config, file, meshingParameters);
+      runExecutable(config, file);
 
       /// Allow to pass input file to mesh bundler in workflow
       return file;
@@ -136,9 +136,8 @@ public class MeshGenerator implements Serializable {
    * Run executable to generate mesh with supplied file and ug runtime configuration
    * @param config ug runtime configuration
    * @param file geometry file
-   * @param meshingParameters values for parameters of mesh generation script
    */
-  private void runExecutable(final UGConfigurator.UGConfiguration config, final File file, final MeshingParameter meshingParameters) {
+  private void runExecutable(final UGConfigurator.UGConfiguration config, final File file) {
     try {
       Path path = config.getScriptPath().toPath();
       Charset charset = StandardCharsets.UTF_8;
