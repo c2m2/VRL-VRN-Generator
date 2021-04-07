@@ -166,17 +166,14 @@ public class MeshGenerator implements Serializable {
         content = content.replace("FOLDERNAME=", "FOLDERNAME=" + file.getName().replace(".swc", "").replace("\\", "\\\\"));
         builder =
           new ProcessBuilder(
-            "cmd.exe",
-            "/c sh",
+            "cmd.exe ", 
+            "/c sh ",
             config.getScriptPath().getAbsolutePath().replace("\\", "\\\\")
           );
 
           /// Temporary debug output for Windows builds
-          System.err.println("cmd.exe /c sh" + config.getScriptPath().getAbsolutePath().replace("\\", "\\\\") +
-          "-i" + file.getName().replace("\\", "\\\\") +   "-o" + file.getName().replace(".swc", "").replace("\\", "\\\\"));
-
-          VMessage.msg("cmd.exe /c sh" + config.getScriptPath().getAbsolutePath().replace("\\", "\\\\") +
-          "-i" + file.getName().replace("\\", "\\\\") +   "-o" + file.getName().replace(".swc", "").replace("\\", "\\\\"), "", MessageType.INFO);
+          System.err.println("cmd.exe /c sh " + config.getScriptPath().getAbsolutePath().replace("\\", "\\\\"));
+          VMessage.msg("cmd.exe /c sh " + config.getScriptPath().getAbsolutePath().replace("\\", "\\\\"), "", MessageType.INFO);
       }
  
       builder = builder.directory(new File(file.getParent()));
