@@ -1,13 +1,12 @@
 # VRL-VRN-Generator
 
-VRL-Studio project for neuron mesh generation and containerizing to .vrn for virtual reality 
+A VRL-Studio project for neuron mesh generation with a visual programming workflow and configuration of parameter values and packaging respectively containerizing generated meshes into a `.vrn` archive for the virtual reality project. 
 
-This project enables the user to create VR meshes and bundles thereof in our 
-custom container format (`.vrn`) readable in our virtual reality project in Unity.
+The project enables the end-user to create meshes and mesh bundles in our custom container format (`.vrn`) derived from the `zip` file format and is supported to be read and modified in our virtual reality project developed for the Unity gaming platform.
 
-The *only* prerequisites are a valid installation of [VRL-Studio](https://vrl-studio.mihosoft.eu/) (and the existence of the UG binary, see [ughub](https://github.com/UG4/ughub)), see section on howto build the project and generate meshes below. 
+ There is *only* one prerequisite which is a valid installation of the [VRL-Studio](https://vrl-studio.mihosoft.eu/) IDE (and the existence of a precompiled UG4 binary, see [ughub](https://github.com/UG4/ughub)) how to build. In particular for this project see the section on howto build and generate meshes below if you have fulfilled the prerequisites.
 
-**Note:** For now the path to the ugshell binary has to be provided manually until further notice. If the license of the UG project allows the binary to be included into a derived project then the only requirement which remains is the VRL-Studio installation in the future.
+**Please note:** For now the path to a precompiled UG4 (ugshell) binary has to be provided manually until further notice. If the developers of the UG4 project will allow our project to incldue the binary into a derived project, in particular to allow to include the binary as a resource for *this* project then the only requirement which remains is a valid installation of the VRL-Studio IDE which is supported on Linux, OSX and Windows.
 
 ### Build status
 | Linux  | Windows (WSL) | OSX |
