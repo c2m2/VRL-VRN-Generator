@@ -184,7 +184,7 @@ public class MeshGenerator implements Serializable {
       String line;
 
       while ((line = br.readLine()) != null) {
-        System.out.println(line);
+        System.err.println(line);
       }
 
     } catch (IOException ioe) {
