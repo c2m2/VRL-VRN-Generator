@@ -6,7 +6,7 @@ The project enables the end-user to create meshes and mesh bundles in our custom
 
  There is *only* one prerequisite which is a valid installation of the [VRL-Studio](https://vrl-studio.mihosoft.eu/) IDE (and the existence of a precompiled UG4 binary, see [ughub](https://github.com/UG4/ughub) for how to build). In particular for this project see the section on howto build and generate meshes below if you have fulfilled the prerequisites.
 
-**Please note:** For now the path to a precompiled UG4 (ugshell) binary has to be provided manually until further notice. If the developers of the UG4 project will allow our project to incldue the binary into a derived project, in particular to allow to include the binary as a resource for *this* project then the only requirement which remains is a valid installation of the VRL-Studio IDE which is supported on Linux, OSX and Windows.
+**Please note:** For now the path to a precompiled UG4 (ugshell) binary has to be provided manually until further notice. If the developers of the UG4 project will allow our project to include the binary into a derived project, in particular to allow to include the binary as a resource for *this* project then the only requirement which remains is a valid installation of the VRL-Studio IDE which is supported on Linux, OSX and Windows.
 
 ### Build status
 | Linux  | Windows (WSL) | OSX |
@@ -42,17 +42,19 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 1.  Clone this repository
 2.  (Optional) Edit build.properties and set path to your VRL installation
 3.  Either `./gradlew installVRLplugin` or `./gradlew jar` and manual installation of the compiled project
-4.  Open the template project via `File->New Project from template->Mesh generation - Example workflow` from within VRL-Studio
 
 ### From release (precompiled)
 1.  Download a release from the tab on the right (Chose the file `vrl_plugin.zip` from any release)
 2.  Decompress the `vrl-plugin.zip` which will create the file `VRL-VRN-Generator.jar`.
 3.  Open VRL-Studio and install the plugin via `Plugins->Install Plugin` and select `VRL-VRN-Generator.jar`.
-4.  Restart VRL-Studio and open the template project from `File->New Project from template`.
 
-Familarize with the example workflow, then provide `.swc` files from a database, e.g. *NeuroMorpho.org*.
-Likewise there is a template project which ships with the mesh generation tool via `File->New Project from template` and
-then chose `Mesh Generation - Example workflow with geometry`.
+In both cases (re-)start VRL-Studio and then open any of the provided template projects from the menu `File->New Project from template` from within VRL-Studio.
+
+Familarize with the example workflow, then provide a neuron geometry file in the `.swc` format from a database like *NeuroMorpho.org*.
+
+The project ships with an example 1D neuron geometry for which we will create the corresponding 3D geometry, choose the template 
+`Mesh Generation - Example workflow with geometry`. The user can also provide their own geometry in this project or load explictly
+the template project anticipated for custom input geometries by choosing `Mesh Generation - Example workflow`.
 
 ## Latest ten nightly builds
 -   [Fri Mar 19 14:42:03 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48144757/zip)
