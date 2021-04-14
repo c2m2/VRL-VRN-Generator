@@ -50,7 +50,7 @@ Currently JDK >=8 (up to JDK 13) and Gradle >=6 is supported on the operating sy
 
 In both cases (re-)start VRL-Studio and then open any of the provided template projects from the menu `File->New Project from template` from within VRL-Studio.
 
-Familarize with the example workflow, then provide a neuron geometry file in the `.swc` format from a database like *NeuroMorpho.org*.
+Familarize with the example workflow, then provide a neuron geometry file in the `.swc` format from a [database](http://NeuroMorpho.org) like *NeuroMorpho.org*.
 
 The project ships with an example 1D neuron geometry for which we will create the corresponding 3D geometry, choose the template 
 `Mesh Generation - Example workflow with geometry`. The user can also provide their own geometry in this project or load explictly
