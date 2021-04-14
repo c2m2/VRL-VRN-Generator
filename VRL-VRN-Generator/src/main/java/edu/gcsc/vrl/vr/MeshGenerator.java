@@ -136,17 +136,18 @@ public class MeshGenerator implements Serializable {
    * Run executable to generate mesh with supplied file and ug runtime configuration
    * @param config ug runtime configuration
    * @param file geometry file
-   * @param meshingParmaeters meshing parameters 
+   * @param meshingParameters meshing parameters 
    */
   private void runExecutable(final UGConfigurator.UGConfiguration config, final File file, final MeshingParameter meshingParameters) {
     try {
+      /// Set the path to the ugshell binary 
       Path path = config.getScriptPath().toPath();
       Charset charset = StandardCharsets.UTF_8;
-
       String content = new String(Files.readAllBytes(path), charset);
       content = content.replace("$BINARY", config.getBinaryPath().getAbsolutePath().replace("\\", "\\\\"));
       Files.write(path, content.getBytes(charset));
 
+      /// Build the OS-dependent command line strings for execution
       ProcessBuilder builder;
       if (!isWindows) {
         /// OSX and Linux
@@ -164,41 +165,38 @@ public class MeshGenerator implements Serializable {
         builder =
           new ProcessBuilder(
             "cmd.exe ", 
-            "/c sh ",
+            "/c ",
             config.getScriptPath().getAbsolutePath().replace("\\", "\\\\")
           );
-
-          /// Temporary debug output for Windows builds
-          System.err.println("cmd.exe /c sh " + config.getScriptPath().getAbsolutePath().replace("\\", "\\\\"));
-          VMessage.msg("cmd.exe /c sh " + config.getScriptPath().getAbsolutePath().replace("\\", "\\\\"), "", MessageType.INFO);
       }
  
+      /// Execute the command line string in a process
       builder = builder.directory(new File(file.getParent()));
       Process process = builder.start();
+
+      /// Echo output of mesh generation's pipeline script to standard output stream
       InputStream is = process.getInputStream();
       InputStreamReader isr = new InputStreamReader(is);
       BufferedReader br = new BufferedReader(isr);
       String line;
-
       while ((line = br.readLine()) != null) {
         System.out.println(line);
       }
 
-      /// Debugging for Windows
+      /// Verify that the script has finished its execution and report exit status to the user
       try {
-        int exitValue = process.waitFor();
-        if (exitValue == 0) {
-          System.out.println("Success: " + exitValue);
+        final int exitStatus = process.waitFor();
+        if (exitStatus != 0) {
+          VMessage.msg("Mesh generation pipeline script couldn't be invoked", "Exit status of mesh generation script invocation is: " + exitStatus, MessageType.ERROR);
         } else {
-          System.out.println("Failure: " + exitValue);
+          VMessage.msg("Mesh generation pipeline script executed successfully", "Meshes have been generated and are now subject to mesh bundling into a VRN archive", MessageType.INFO);
         }
       } catch (InterruptedException ie) {
-         ie.printStackTrace();
+         VMessage.msg("Mesh generation pipeline script couldn't finish its execution", ie.toString(), MessageType.ERROR);
       }
-
+    /// Any exceptions due to the input folder not available or pipeline script not found
     } catch (IOException ioe) {
-        ioe.printStackTrace();
-        VMessage.msg("Mesh generation failed: Pipeline script couldn't be run. Check console for details.", ioe.toString(), MessageType.ERROR);
+        VMessage.msg("Mesh generation failed: Input geometry folder or pipeline script couldn't be found", ioe.toString(), MessageType.ERROR);
     }
   }
 }
