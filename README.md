@@ -54,7 +54,7 @@ Familarize with the example workflow, then provide `.swc` files from a database,
 Likewise there is a template project which ships with the mesh generation tool via `File->New Project from template` and
 then chose `Mesh Generation - Example workflow with geometry`.
 
-## Latest nightly builds
+## Latest ten nightly builds
 -   [Fri Mar 19 14:42:03 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48144757/zip)
 -   [Mon Mar 22 11:31:31 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48603843/zip)
 -   [Tue Mar 23 07:12:37 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/48605460/zip)
@@ -64,6 +64,4 @@ then chose `Mesh Generation - Example workflow with geometry`.
 -   [Tue Apr  6 08:56:00 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/51856452/zip)
 -   [Wed Apr  7 06:59:06 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/51857711/zip)
 -   [Thu Apr  8 07:00:16 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/52117196/zip)
--   [Wed Apr 14 08:55:29 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/52403348/zip)
--   [Wed Apr 14 12:27:47 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/53765087/zip)
 -   [Wed Apr 14 12:30:50 UTC 2021](https://api.github.com/repos/c2m2/VRL-VRN-Generator/actions/artifacts/53809353/zip)
