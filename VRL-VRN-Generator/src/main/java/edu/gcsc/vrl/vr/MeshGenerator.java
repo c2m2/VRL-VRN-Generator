@@ -154,16 +154,13 @@ public class MeshGenerator implements Serializable {
           new ProcessBuilder(
             config.getScriptPath().toString(),
             "-i" + file.getName(),
-            "-o" + file.getName().replace(".swc", ""),
-            "-s1" + meshingParameters.getSegLength(),
-            "-r" + meshingParameters.getRefinement(),
-            "-b" + meshingParameters.getInflation(),
-            "-p" + meshingParameters.getSmooth()
+            "-o" + file.getName().replace(".swc", "")
           );
       } else {
         /// Windows WSL (Getopts not guaranteed to be available on WSL-enabled devices)
         content = content.replace("FILE_PATTERN=", "FILE_PATTERN=" + file.getName().replace("\\", "\\\\"));
         content = content.replace("FOLDERNAME=", "FOLDERNAME=" + file.getName().replace(".swc", "").replace("\\", "\\\\"));
+        Files.write(path, content.getBytes(charset));
         builder =
           new ProcessBuilder(
             "cmd.exe ", 
@@ -184,11 +181,24 @@ public class MeshGenerator implements Serializable {
       String line;
 
       while ((line = br.readLine()) != null) {
-        System.err.println(line);
+        System.out.println(line);
+      }
+
+      /// Debugging for Windows
+      try {
+        int exitValue = process.waitFor();
+        if (exitValue == 0) {
+          System.out.println("Success: " + exitValue);
+        } else {
+          System.out.println("Failure: " + exitValue);
+        }
+      } catch (InterruptedException ie) {
+         ie.printStackTrace();
       }
 
     } catch (IOException ioe) {
-      VMessage.msg("Mesh generation failed: Pipeline script couldn't be run. Check console for details.", ioe.toString(), MessageType.ERROR);
+        ioe.printStackTrace();
+        VMessage.msg("Mesh generation failed: Pipeline script couldn't be run. Check console for details.", ioe.toString(), MessageType.ERROR);
     }
   }
 }
