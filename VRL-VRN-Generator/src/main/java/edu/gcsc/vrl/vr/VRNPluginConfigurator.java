@@ -28,7 +28,7 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
    */
   public VRNPluginConfigurator() {
     // specify the plugin name and version 
-    setIdentifier(new PluginIdentifier("VRL-VRN-Generator", "0.0.5"));
+    setIdentifier(new PluginIdentifier("VRL-VRN-Generator", "0.0.6"));
 
     // exported by using the exportPackage() method:
     exportPackage("edu.gcsc.vrl.vr");
@@ -83,6 +83,8 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
       final File templatePipelineScript = new File(iApi.getResourceFolder(), "pipeline_vr.sh");
       InputStream in = VRNPluginConfigurator.class.getResourceAsStream("/edu/gcsc/vrl/vr/pipeline_vr.sh");
       saveProjectTemplate(in, templatePipelineScript);
+
+      /// Make pipeline scripts executable on OSX/Linux and Windows (WSL)
       try {
         boolean isWindows = System
         .getProperty("os.name")
@@ -96,7 +98,7 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
           .exec("cmd.exe /c chmod u+x " + templatePipelineScript);
         }
       } catch (IOException ioe) {
-        VMessage.msg("Mesh generation pipeline script not executable", ioe.toString(), MessageType.ERROR);
+        VMessage.msg("Mesh generation pipeline script not found and can't be made executable", ioe.toString(), MessageType.ERROR);
       }
 
       /// Add neuron geometry resource
