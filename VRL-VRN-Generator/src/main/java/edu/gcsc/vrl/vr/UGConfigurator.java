@@ -17,6 +17,7 @@ public class UGConfigurator implements Serializable {
 
   /**
    * UG runtime configuration
+   * Path to binary and path to script 
    */
   public class UGConfiguration {
     private final File pathToBinary;
@@ -32,13 +33,15 @@ public class UGConfigurator implements Serializable {
     }
 
     /**
-     * @return File
+     * Get binary path
+     * @return File 
      */
     public File getBinaryPath() {
       return pathToBinary;
     }
 
     /**
+     * Get script path
      * @return File
      */
     public File getScriptPath() {

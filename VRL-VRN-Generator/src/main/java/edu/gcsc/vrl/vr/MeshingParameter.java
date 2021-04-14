@@ -2,6 +2,7 @@ package edu.gcsc.vrl.vr;
 
 /**
  * MeshingParameter
+ * Smoothing, number of inflations and refinements as well as segment length 
  */
 public final class MeshingParameter {
     private final boolean smooth;

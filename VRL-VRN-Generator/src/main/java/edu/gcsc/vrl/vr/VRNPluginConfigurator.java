@@ -52,6 +52,7 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
   }
 
   /**
+   * Register plugin components
    */
   @Override
   public void register(PluginAPI api) {
@@ -66,17 +67,19 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
   }
 
   /**
+   * Unregister plugin components
    */
   @Override
   public void unregister(PluginAPI api) {
-    // nothing to unregister
+    /// nothing to unregister yet
   }
 
   /**
-   * 
+   * Initialize the plugin
    */
   @Override
   public void init(InitPluginAPI iApi) {
+      /// Path to plugin
       PathProvider.plugin = iApi.getResourceFolder();
 
       /// Install pipeline script
@@ -172,27 +175,27 @@ public class VRNPluginConfigurator extends VPluginConfigurator {
              }
          }
       );
+  }
 
- }
+  /**
+   * Save the project template
+   * @param in input stream for template project
+   * @param outFile output file for template project
+  */
+  private void saveProjectTemplate(InputStream in, File outFile)
+  {
+      try
+      {
+          IOUtil.saveStreamToFile(in, outFile);
+      }
+      catch (FileNotFoundException ex)
+      {
+        VMessage.exception("Resource file not found", ex.toString());
 
-   /**
-     * @brief saves the project templates
-     */
-    private void saveProjectTemplate(InputStream in, File outFile)
-    {
-        try
-        {
-            IOUtil.saveStreamToFile(in, outFile);
-        }
-        catch (FileNotFoundException ex)
-        {
-          VMessage.exception("Resource file not found", ex.toString());
-
-        }
-        catch (IOException ex)
-        {
-          VMessage.exception("Resource file could not be loaded", ex.toString());
-        }
-    }
-
+      }
+      catch (IOException ex)
+      {
+        VMessage.exception("Resource file could not be loaded", ex.toString());
+      }
+  }
 }

@@ -14,7 +14,10 @@ import java.io.Serializable;
 @ComponentInfo(name="PathProvider", category="VR/")
 public class PathProvider implements Serializable
 {
+    /// For serialization of component
     private static final long serialVersionUID = 1L;
+
+    /// Path of plugin
     public static File plugin;
     
     /**
