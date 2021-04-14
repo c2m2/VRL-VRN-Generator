@@ -155,7 +155,8 @@ public class MeshGenerator implements Serializable {
           new ProcessBuilder(
             config.getScriptPath().toString(),
             "-i" + file.getName(),
-            "-o" + file.getName().replace(".swc", "")
+            "-o" + file.getName().replace(".swc", ""),
+            "-p" + meshingParameters.getSmooth()
           );
       } else {
         /// Windows WSL (Getopts not guaranteed to be available on WSL-enabled devices)
